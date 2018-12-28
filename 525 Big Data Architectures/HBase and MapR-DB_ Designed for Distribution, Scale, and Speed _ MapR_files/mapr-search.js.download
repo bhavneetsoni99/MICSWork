@@ -1,0 +1,246 @@
+var DOMAIN = 'https://mapr.com';
+var SEARCH_RESULTS_DIV_NAME = 'search-results';
+var DEFAULT_LANGUAGE = 'en';
+var DEFAULT_RESULT_PATH = '/' + DEFAULT_LANGUAGE;
+var SEARCH_RESULT_CONTENT_MAX_LENGTH = 240;
+var MAX_SHORT_RESULTS = 3;
+var MAX_LONG_RESULTS = 10;
+var ES_SEARCH_PATH = DOMAIN + '/search-md/';
+var SEARCH_PATH = '/search/';
+var IS_SEARCH_PAGE = false;
+var URL_PARAMS = new URLSearchParams(window.location.search);
+var START_RECORD = 0;
+
+/**
+ * When getting the query param, if it is empty, return the default.
+ */
+function getQueryParam(field, defaultValue) {
+	var v = defaultValue;
+	if (URL_PARAMS.has(field)) {
+		v = URL_PARAMS.get(field);
+		if (v == '' || v == null) {
+			v = defaultValue;
+		}
+	}
+	return v;
+}
+
+/**
+ * Only set the form field if there is a value to set.
+ */
+function setFormFieldValue(fieldName, fieldValue) {
+	var field = document.getElementById(fieldName);
+	if (field.value == null || field.value == '') {
+		field.value = fieldValue;
+	}
+}
+
+/**
+ * if information was passed in, this will setup the search form
+ * and execute the query.
+ */
+function setupSearchForm(formId) {
+	window.onload = function() {
+			document.getElementById(formId + '-q').focus();
+	};
+
+	/**
+	 * Get the query param passed across. We get it here so that when the search
+	 * form needs it, it can then call and set these query params into the form.
+	 */
+	setFormFieldValue(formId + '-l', getQueryParam('l', DEFAULT_LANGUAGE));
+	setFormFieldValue(formId + '-q', getQueryParam('q', ''));
+	setFormFieldValue(formId + '-t', getQueryParam('t', ''));
+
+	performSearchQuery(formId);
+}
+
+/**
+ * This is the search for onSubmit method.
+ */
+function submitSearchQuery(formName) {
+	var fd = loadFormData(formName);
+	return !IS_SEARCH_PAGE && fd.query.length > 0;
+}
+
+function performSearchQuery(formName) {
+	var fd = loadFormData(formName);
+
+	/**
+	 * No query entered in the box, clear the results
+	 */
+	resultsDiv = document.getElementById(SEARCH_RESULTS_DIV_NAME);
+	if (fd.query.length == 0) {
+		resultsDiv.innerHTML = "";
+		resultsDiv.style.border = "0px";
+	} else {
+		/**
+		 * We have a valid query, so prepare the callback and
+		 * execute the call to get the search results.
+		 */
+		var xmlhttp = window.XMLHttpRequest ?
+			// code for IE7+, Firefox, Chrome, Opera, Safari
+			new XMLHttpRequest() :
+			new ActiveXObject("Microsoft.XMLHTTP"); // code for IE6, IE5
+
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				resultsDiv.innerHTML = "";
+				var res = JSON.parse(this.responseText);
+				var totalResults = res.total;
+				//console.log(res);
+				if (totalResults > 0) {
+					var hitList = res.hits;
+					formatResults(formName, resultsDiv, hitList, totalResults);
+				} else {
+					resultsDiv.style.border = "0px";
+				}
+			}
+		}
+
+		var query = buildQueryString(fd);
+		console.log(query);
+		xmlhttp.open("GET", ES_SEARCH_PATH + query, true);
+		xmlhttp.send();
+	}
+}
+
+function formatResults(formName, resultsDiv, hitList, totalResults) {
+	var hitCount = hitList.length;
+	for (var i = 0; i < hitCount; i++) {
+		var hit = hitList[i];
+
+		var content = null;
+		if (IS_SEARCH_PAGE) {
+			content = hit._source.content.substr(0, SEARCH_RESULT_CONTENT_MAX_LENGTH);
+			var cl1 = content.length;
+			content = content.substr(0, Math.min(content.length, content.lastIndexOf(" ")))
+			if (cl1 > content.length) {
+				content += " ...";
+			}
+		}
+
+		var url = hit._source.url;
+		if (hit._source.url.indexOf(DEFAULT_RESULT_PATH) == 0) {
+			url = url.substr(DEFAULT_RESULT_PATH.length);
+		}
+		addSearchResultEntry(resultsDiv, url, hit._source.metadata.title, content);
+	};
+
+	/**
+	 * When there are more results that we can fit, show an alternate
+	 * set of options depending on long or short results.
+	 */
+	if (totalResults > hitCount) {
+		if (IS_SEARCH_PAGE) {
+			console.log("adding pagination...");
+			buildPagination(resultsDiv);
+		} else {
+			console.log('adding more results...');
+			appendMoreResultsOption(resultsDiv, formName);
+		}
+	}
+}
+
+/**
+ * This function creates the <div> structure that gets added to
+ * the results section of a page.
+ */
+function addSearchResultEntry(resultsDiv, url, title, content) {
+	var searchResultRecord = document.createElement('div');
+	searchResultRecord.className = "search-record";
+	resultsDiv.appendChild(searchResultRecord);
+
+	var titleTag = document.createElement('h3');
+	searchResultRecord.appendChild(titleTag);
+	var titleLink = document.createElement('a');
+	titleLink.setAttribute('href', url);
+	titleLink.innerHTML = title;
+	titleTag.appendChild(titleLink);
+
+	if (content != null) {
+		var recordSubDataTag = document.createElement('div');
+		recordSubDataTag.className = "record-subdata";
+		var citationHolder = document.createElement('div');
+		var citation = document.createElement('cite');
+		citation.innerHTML = DOMAIN + url;
+		citation.className = "citation";
+		citationHolder.appendChild(citation);
+		recordSubDataTag.appendChild(citationHolder);
+		searchResultRecord.appendChild(recordSubDataTag);
+
+		var contentData = document.createElement('span');
+		contentData.className = "search-content";
+		contentData.innerHTML = content;
+		recordSubDataTag.appendChild(contentData);
+	}
+
+	return titleLink;
+}
+
+function buildPagination(resultsDiv) {
+	var paginationHolder = document.createElement('div');
+	var message = document.createElement('h4');
+	paginationHolder.appendChild(message);
+	message.className = "too-many-results";
+	message.innerHTML = "Many hits found, pagination coming soon...";
+	resultsDiv.appendChild(paginationHolder);
+}
+
+/**
+ * Add a "more results..." link which submits the query to the search page.
+ */
+function appendMoreResultsOption(resultsDiv, formName) {
+	var form = document.getElementById(formName);
+	var titleLink = addSearchResultEntry(resultsDiv, "#", "see more results", null);
+	titleLink.addEventListener("click", function() {
+		form.submit();
+	});
+	titleLink.className = "btn-red";
+}
+
+function loadFormData(formName) {
+	var form = document.getElementById(formName);
+	var formVals = form.elements;
+	var data = {};
+	for (var i = 0; i < formVals.length; i++) {
+		var piece = formVals.item(i);
+		switch (piece.name) {
+			case "l":
+				data.language = piece.value;
+				break;
+			case "q":
+				data.query = piece.value;
+				break;
+			case "t":
+				data.type = piece.value;
+				break;
+			default:
+				break;
+		}
+	}
+
+	return data;
+}
+
+function buildElasticSearchField(field, value, defaultValue, append) {
+	//console.log("f: " + field + ", v: " + value + ", dV: " + defaultValue + ", a: " + append);
+	var v = value == null || value == '' ? defaultValue : value;
+	var and = append ? ' AND ' : '';
+	return v != null && v != '' ? and + field + ':"' + v + '"' : '';
+}
+
+function buildQueryString(formData) {
+	var maxResults = IS_SEARCH_PAGE ? MAX_LONG_RESULTS : MAX_SHORT_RESULTS;
+
+  /**
+	 * Be sure NOT to quote the query or else that forces a query that is literal
+	 * "must match this phrase exactly".
+	 */
+	return '?default_operator=AND' +
+		'&size=' + maxResults +
+		'&from=' + START_RECORD +
+		"&query=" + formData.query.trim() +
+		buildElasticSearchField('metadata.language', formData.language, DEFAULT_LANGUAGE, true) +
+		buildElasticSearchField('metadata.type', formData.type, '', true);
+}

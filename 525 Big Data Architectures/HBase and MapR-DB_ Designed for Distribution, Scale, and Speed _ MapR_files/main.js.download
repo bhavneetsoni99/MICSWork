@@ -1,0 +1,245 @@
+$(document).ready(function(){
+	
+
+	
+	$(window).on('load resize', function(){
+		var winWidth = $(this).width();
+		if ( winWidth > 991 ) {
+			$('#navigation-mainbar').find('li').last().find('a').addClass('btn-standard');
+		} else {
+			$('#navigation-mainbar').find('li').last().find('a').removeClass('btn-standard');
+		}
+	});
+	
+	
+	
+	// Module   : mod-1-2-sub-nav
+	// Goal     : Make the sub-nav element 'sticky' when a user has scrolled past it.
+	// Approach : Identify the position of the sub-nav relative to the top document, and the scroll position of the window. If ( windowPos >= subNavPos ) is true, then the 'sticky' class gets added, or otherwise removed.
+	var windowPos, subNavPos;
+	if ( $('.mod-1-2-sub-nav').length ) {
+		$(window).on('load resize scroll', function(){
+			$subnav = $('.mod-1-2-sub-nav');
+			subNavPos = $subnav.offset().top;
+			windowPos = $(this).scrollTop();
+			if ( windowPos >= subNavPos ) {
+				$subnav.find('.navbar').addClass('sticky');
+			} else {
+				$subnav.find('.navbar').removeClass('sticky');
+			}
+		});
+	}
+	
+	
+	// Module   : mod-1-1-top-nav
+	// Goal     : Show/Hide the navigation search-form for both mobile and desktop.
+	// Approach : Because they appear in two different locations, we've created two forms, one each for mobile and desktop.
+	$('.search-trigger').on('click', function(){
+		var $searchWrapper = $('#navbar_search');
+		if ( $searchWrapper.hasClass('show') ) {
+			if ( $searchWrapper.find('input').val().length === 0 ) {
+				$searchWrapper.removeClass('show').find('input').val('');
+			} else {
+				$searchWrapper.find('form').submit();
+			}
+		} else {
+			$searchWrapper.addClass('show').find('input').focus();
+		}
+	});
+	$('#navbar_search_mobile').on('click', function(){
+		$(this).fadeOut(200);
+		var $searchWrapper = $('#search_top_mobile');
+		$searchWrapper.slideDown(200);
+		$searchWrapper.find('input').focus();
+	});
+	$('#search_top_mobile button').on('click', function(){
+		var $searchWrapper = $('#search_top_mobile');
+		if ( $searchWrapper.find('input').val().length === 0 ) {
+			$searchWrapper.find('input').val('');
+			$searchWrapper.slideUp(200);
+			console.log('no value');
+			$('#navbar_search_mobile').fadeIn(200);					
+		} else {
+			$searchWrapper.find('form').submit();
+		}
+	});
+	
+	
+	// Module   : mod-2-2-homepage-masthead
+	// Goal     : Shift the text in the homnepage hero text to align with the logo.
+	// Approach : Calculate the left offset of the logo in the header and apply it to the text items inside the hero's cells (minus the padding of the items).
+	var $hero = $('.mod-2-2-homepage-masthead');
+	function heroTextAdjust() {
+		var windowWidth = $(this).width();
+		if ( windowWidth >= 991 ) {
+			var headerOffset = $('header .logo-mapr-red').offset().left;
+			$hero.find('.cell-main > * > *, .cell-5 > * > img').css({
+				marginLeft: (headerOffset - 55)
+			});
+			$hero.find('.masthead-legend').css({
+				marginLeft: (headerOffset - 60)
+			});
+		} else {
+			$hero.find('.cell-main > * > *, .cell-5 > * > img').css({
+				marginLeft: 5
+			});
+			$hero.find('.masthead-legend').css({
+				marginLeft: 0
+			});
+		}
+	}
+	$(window).on('load resize', heroTextAdjust );
+	$hero.find('.cell-dark .cell-inner').delay(2000).fadeTo(400,1);
+	$hero.find('.masthead-legend').delay(2500).fadeTo(400,1);
+	
+	
+	
+	// Module   : mod-2-2-homepage-masthead
+	// Goal     : Use a hidden image in the hero masthead to build the masthead carousel.
+	// Approach : In an effort to allow simple image uploads into the background carousel, this script find the (visibly hidden) image from each 'slide' of the masthead's first cell, and applies them to the background of the masthead. From there, the script rotates through each of the '.cell-inner's in the masthead's '.cell-main'.
+	var secondsPerSlide = 8;
+	function setText(){
+		var slideImg = $hero.find('.cell-inner').addClass('active');
+	}
+	function setBackground(){
+		var slideImg = $hero.find('.cell-inner.active img').attr('src');
+		var bgProperty = 'url(' + slideImg + ')';
+//		console.log(slideImg);
+		
+		$hero.find('.cell-main .cell-inner.active > *').css({
+			opacity: '0'
+		});
+		$hero.find('.masthead-background').css({
+			opacity: 0
+		});
+		setTimeout(function(){
+			$hero.find('.masthead-background').css({
+				backgroundImage: bgProperty
+			});
+		}, 600);
+		setTimeout(function(){
+			$hero.find('.masthead-background').css({
+				opacity: 1
+			});
+		}, 900);
+	}
+	function animateText() {
+		setTimeout(function(){
+			$hero.find('.cell-main .cell-inner.active > *').css({
+				opacity: '1'
+			});
+		}, 1200);
+	}
+	(function buildLegend(){
+		var count = $hero.find('.cell-main .cell-inner').length;
+		$('.masthead-legend').html('');
+		for (var i=0; i < count; i++) {
+			$('.masthead-legend').append('<li></li>');
+		}
+	})();
+	function updateLegend() {
+		var activeSlide = $hero.find('.cell-main .cell-inner.active').index();
+		$('.masthead-legend').find('li').removeClass('active').eq( activeSlide ).addClass('active');
+	}
+	
+	function changeSlide() {
+		if ( $hero.find('.cell-main .cell-inner').last().hasClass('active') ) {
+			$hero.find('.cell-main .cell-inner').removeClass('active');
+			$hero.find('.cell-main .cell-inner').first().addClass('active');
+		} else {
+			$hero.find('.cell-inner.active').removeClass('active').next('.cell-inner').addClass('active');
+		}
+		animateText()
+		setBackground();
+		updateLegend();
+	}
+	$hero.find('.cell-main .cell-inner').first().addClass('active');
+	animateText();
+	setBackground();
+	updateLegend();
+	
+	// Pause carousel on .cell-main hover
+	var newCount = 0;
+	var userHover = false;
+	setInterval(function(){
+		if ( $('.mod-2-2-homepage-masthead').length === 0 ) {
+			return;
+		} else if ( newCount >= (secondsPerSlide-1) ) {
+			changeSlide();
+			setBackground();
+			newCount = 0;
+		}
+		else if ( $('.mod-2-2-homepage-masthead .cell-main').is(":hover") ) {
+			return;
+		} else {
+			newCount++;
+		}
+	}, 1000);
+
+	
+	
+	// Module   : mod-contact-list
+	// Goal     : Better stacking on mobile for when a column has no content.
+	// Approach : If any columns inside '.mod-contact-list' don't have text (a paragraph or link), then removing it's margin.
+	$( '.mod-6-6-contact-list *[class^="col-"]' ).each(function(){
+		if ( !$(this).find('*').text().length ) {
+			$(this).css({
+				marginTop: '-1rem',
+				marginBottom: '-1rem',
+				paddingTop: 0,
+				paddingBottom: 0
+			})
+		}
+	});
+	
+	
+	$(window).on('load resize scroll', function(){
+		var windowOffsetTop = $(this).scrollTop();
+		var windowHeight = $(this).height();
+		
+//		console.log(windowHeight);
+		$('.cdp-cell').each(function(){
+			
+			var elementPos = $(this).offset().top;
+			if ( 0 < Math.floor((windowOffsetTop+(windowHeight*0.75)) - elementPos)) {
+				$(this).addClass('moved');
+			}
+			
+		});
+		
+	});
+	
+	
+	
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

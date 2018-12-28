@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)https://mapr.com/blog/hbase-and-mapr-db-designed-distribution-scale-and-speed/ -->
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>HBase and MapR-DB: Designed for Distribution, Scale, and Speed | MapR</title>
+		    
+		    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		    <!-- <meta http-equiv="Content-Security-Policy" content="default-src https:"> -->
+		    <meta name="description" content="">
+		    <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		    <!-- start : System Icons -->
+		    <link rel="apple-touch-icon" href="https://mapr.com/assets/images/system/favicon.png">
+		    <link rel="shortcut icon" href="https://mapr.com/assets/images/system/favicon.png" type="image/png">
+		    <link rel="icon" href="https://mapr.com/assets/images/system/favicon.png" type="image/png">
+		    <!-- end : System Icons -->
+		
+		    <link rel="stylesheet" href="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/bootstrap.css">
+		    <link rel="stylesheet" href="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/bootstrap-xlgrid.css">
+		    <link rel="stylesheet" href="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/main.css">
+		
+		    <script type="text/javascript" async="" src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/analytics.js.download"></script><script type="text/javascript" async="" src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/linkid.js.download"></script><script type="text/javascript" async="" src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/gacookiegen.js.download"></script><script src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/bat.js.download" async=""></script><script type="text/javascript" async="" src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/analytics.js.download"></script><script async="" src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/gtm.js.download"></script><script async="" src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/gtm.js(1).download"></script><script src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/modernizr-2.8.3-respond-1.4.2.min.js.download"></script>
+		    <script src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/mapr-search.js.download"></script>
+		    <script src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/jquery.min.js.download"></script>
+		    <script>
+		      window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.11.2.min.js"><\/script>')
+		    </script>
+		    <!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script> -->
+	<script src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/embed.js.download" data-timestamp="1491620398097"></script><link rel="preload" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.c1f55c45ca93f97bb7348ad6fcda5189.css"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.c27838a992cbceaa2af5d74dbcde7b88.js"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.dfd25d105efbda46a9b23f265622e674.js"><link rel="preload" as="script" href="https://disqus.com/next/config.js"><script src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/alfie.f51946af45e0b561c60f768335c9eb79.js.download" async="" charset="UTF-8"></script></head>
+	<body>
+		<header class="mod-1-1-top-nav">
+			<div id="search_top_mobile">
+				<form action="https://mapr.com/blog/hbase-and-mapr-db-designed-distribution-scale-and-speed/">
+					<input type="text" placeholder="search">
+				</form>
+				<button>
+					<img src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/icon_microscope.svg" class="icon-microscope" tabindex="1" alt="">
+				</button>
+			</div>
+			<nav class="navbar navbar-default">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+							<span class="burger-bar"></span>
+							<span class="burger-bar"></span>
+							<span class="burger-bar"></span>
+							<span class="sr-only">Toggle navigation</span>
+						</button>
+						<button id="navbar_search_mobile"></button>
+						<a class="" href="https://mapr.com/">
+							<img src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/logo_mapr_red.svg" class="logo-mapr-red" alt="">
+						</a>
+					</div>
+					<div class="collapse navbar-collapse navigation-bar" id="menu">
+						<ul class="nav navbar-nav navbar-right" id="navigation-mainbar">
+							<li><a href="https://mapr.com/why-mapr/">WHY MAPR</a></li>
+							<li><a href="https://mapr.com/products/">PRODUCTS &amp; SERVICES</a></li>
+							<li><a href="https://mapr.com/solutions/">SOLUTIONS</a></li>
+							<li><a href="https://mapr.com/customers/">CUSTOMERS</a></li>
+							<li><a href="https://mapr.com/resources/">RESOURCES</a></li>
+							<li><a href="https://mapr.com/try-mapr/" class="">TRY MAPR</a></li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right navigation-bar" id="navbar-topbar">
+							<li><a href="https://mapr.com/partners/">Partners</a></li>
+							<li><a href="https://mapr.com/developers/">Dev/Support</a></li>
+							<li><a href="http://community.mapr.com/">Community</a></li>
+							<li><a href="https://mapr.com/training/">Training</a></li>
+							<li><a href="https://mapr.com/blog/">Blog</a></li>
+							<li><a href="https://mapr.com/user/">My Account</a></li>
+							<li id="navbar_search">
+								<!-- Begin the search form -->
+								<form id="nav-search" action="https://mapr.com/search/" onsubmit="return submitSearchQuery(&#39;nav-search&#39;);">
+								  <input type="text" id="nav-search-q" name="q" placeholder="search" size="30">
+								  <input type="hidden" id="nav-search-l" name="l" value="en">
+								</form>
+								
+								
+								<!-- End the search form -->
+							</li>
+							<li>
+								<img src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/icon_microscope.svg" class="icon-microscope search-trigger" tabindex="1" alt="">
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+<section class="mod-2-3-tertiary-masthead" id="hero_why_mapr">
+  <div class="cell-1"></div>
+  <div class="cell-2"></div>
+  <div class="cell-main cell-dark">
+    <div class="cell-inner"><h1>HBase and MapR-DB: Designed for Distribution, Scale, and Speed</h1></div>
+  </div>
+  <div class="cell-4"></div>
+  <div class="cell-5"></div>
+  <div class="cell-6"></div>
+  <div class="cell-7"></div>
+</section>
+
+<section class="mod-5-7-blog-content-long-form">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9 col-xl-8">
+        <img src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/data-speed-scale.png" alt="">
+        <h6>June 26, 2015 | BY Carol McDonald</h6>
+        <p></p><p><a href="https://mapr.com/products/product-overview/apache-hbase">Apache HBase</a> is a database that runs on a <a href="https://mapr.com/products/apache-hadoop">Hadoop</a> cluster. HBase is not a traditional RDBMS, as it relaxes the ACID (Atomicity, Consistency, Isolation, and Durability) properties of traditional RDBMS systems in order to achieve much greater scalability. Data stored in HBase also does not need to fit into a rigid schema like with an RDBMS, making it ideal for storing unstructured or semi-structured data.</p>
+<p>The <a href="https://mapr.com/products/mapr-db-in-hadoop-nosql">MapR Converged Data Platform</a> supports HBase, but also supports <a href="https://mapr.com/products/mapr-db-in-hadoop-nosql">MapR-DB</a>, a high performance, enterprise-grade NoSQL DBMS that includes the HBase API to run HBase applications. For this blog, I’ll specifically refer to HBase, but understand that many of the advantages of using HBase in your data architecture apply to MapR-DB. MapR built MapR-DB to take HBase applications to the next level, so if the thought of higher powered, more reliable HBase deployments sound appealing to you, take a look at some of the <a href="https://mapr.com/products/mapr-db-in-hadoop-nosql">MapR-DB content here</a>.</p>
+<p>HBase allows you to build big data applications for scaling, but with this comes some different ways of implementing applications compared to developing with traditional relational databases. In this blog post, I will provide an overview of HBase, touch on the limitations of relational databases, and dive into the specifics of the HBase data model.</p>
+<p><strong>Relational Databases vs. HBase – Data Storage Model</strong></p>
+<p>Why do we need NoSQL/HBase? First, let’s look at the pros of relational databases before we discuss its limitations:</p>
+<ul>
+<li>Relational databases have provided a standard persistence model</li>
+<li><a href="https://mapr.com/why-hadoop/sql-hadoop/sql-hadoop-details">SQL</a> has become a de-facto standard model of data manipulation (SQL)</li>
+<li>Relational databases manage concurrency for transactions</li>
+<li>Relational database have lots of tools</li>
+</ul>
+<p><img src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/Relational-Databases-vs-HBase.png" alt="Relational databases vs. HBase"></p>
+<p>Relational databases were the standard for years, so what changed? With more and more data came the need to scale. One way to scale is vertically with a bigger server, but this can get expensive, and there are limits as your size increases.</p>
+<p><img src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/Relational-Databases-vs-HBase-2.png" alt="Relational databases vs HBase"></p>
+<p><em>Relational Databases vs. HBase - Scaling</em></p>
+<p><strong>What changed to bring on NoSQL?</strong></p>
+<p>An alternative to vertical scaling is to scale horizontally with a cluster of machines, which can use commodity hardware. This can be cheaper and more reliable. To horizontally partition or shard a RDBMS, data is distributed on the basis of rows, with some rows residing on a single machine and the other rows residing on other machines, However, it’s complicated to partition or shard a relational database, and it was not designed to do this automatically. In addition, you lose the querying, transactions, and consistency controls across shards. Relational databases were designed for a single node; they were not designed to be run on clusters.  </p>
+<p><img src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/NoSQL-scale.png" alt="NoSQL scale"></p>
+<p><strong>Limitations of a Relational Model</strong></p>
+<p>Database normalization eliminates redundant data, which makes storage efficient. However, a normalized schema causes joins for queries, in order to bring the data back together again. While HBase does not support relationships and joins, data that is accessed together is stored together so it avoids the limitations associated with a relational model. See the difference in data storage models in the chart below:</p>
+<p><img src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/RDBMS-HBase-storage.png" alt="RDBMS HBase storage model"></p>
+<p><em>Relational databases vs. HBase - data storage model</em></p>
+<p><strong>HBase Designed for Distribution, Scale, and Speed</strong></p>
+<p>HBase was designed to scale due to the fact that data that is accessed together is stored together. Grouping the data by key is central to running on a cluster. In horizontal partitioning or sharding, the key range is used for sharding, which distributes different data across multiple servers. Each server is the source for a subset of data. Distributed data is accessed together, which makes it faster for scaling. HBase is actually an implementation of the BigTable storage architecture, which is a distributed storage system developed by Google that’s used to manage structured data that is designed to scale to a very large size.</p>
+<p>HBase is referred to as a column family-oriented data store. It’s also row-oriented: each row is indexed by a key that you can use for lookup (for example, lookup a customer with the ID of 1234). Each column family groups like data (customer address, order) within rows. Think of a row as the join of all values in all column families.</p>
+<p><img src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/HBase-column.png" alt="HBase column database"></p>
+<p><em>HBase is a column family-oriented database</em></p>
+<p>HBase is also considered a distributed database. Grouping the data by key is central to running on a cluster and sharding. The key acts as the atomic unit for updates. Sharding distributes different data across multiple servers, and each server is the source for a subset of data.</p>
+<p><img src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/HBase-distributed-database.png" alt="HBase distributed database"></p>
+<p><em>HBase is a distributed database</em></p>
+<p><strong>HBase Data Model</strong></p>
+<p>Data stored in HBase is located by its “rowkey.” This is like a primary key from a relational database. Records in HBase are stored in sorted order, according to rowkey. This is a fundamental tenet of HBase and is also a critical semantic used in HBase schema design.</p>
+<p><img src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/HBase-data-model.png" alt="HBase Data Model"></p>
+<p><em>HBase data model – row keys</em></p>
+<p>Tables are divided into sequences of rows, by key range, called regions. These regions are then assigned to the data nodes in the cluster called “RegionServers.” This scales read and write capacity by spreading regions across the cluster. This is done automatically and is how HBase was designed for horizontal sharding.</p>
+<p><img src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/HBase-tables.png" alt="HBase Tables"></p>
+<p><em>Tables are split into regions = contiguous keys</em></p>
+<p>The image below shows how column families are mapped to storage files. Column families are stored in separate files, which can be accessed separately.</p>
+<p><img src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/HBase-column-families.png" alt="Hbase column families"></p>
+<p>The data is stored in HBase table cells. The entire cell, with the added structural information, is called Key Value. The entire cell, the row key, column family name, column name, timestamp, and value are stored for every cell for which you have set a value. The key consists of the row key, column family name, column name, and timestamp.</p>
+<p><img src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/Hbase-table-cells.png" alt="Hbase table cells"></p>
+<p>Logically, cells are stored in a table format, but physically, rows are stored as linear sets of cells containing all the key value information inside them.</p>
+<p>In the image below, the top left shows the logical layout of the data, while the lower right section shows the physical storage in files. Column families are stored in separate files. The entire cell, the row key, column family name, column name, timestamp, and value are stored for every cell for which you have set a value.</p>
+<p><img src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/Logical-vs-physical-storage.png" alt="logical data model vs physical data storage"></p>
+<p><em>Logical data model vs. physical data storage</em></p>
+<p>As mentioned before, the complete coordinates to a cell's value are: Table:Row:Family:Column:Timestamp ➔ Value. HBase tables are sparsely populated. If data doesn’t exist at a column, it’s not stored. Table cells are versioned uninterpreted arrays of bytes. You can use the timestamp or set up your own versioning system. For every coordinate row:family:column, there can be multiple versions of the value.</p>
+<p><img src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/sparse-data.png" alt="Sparse data"></p>
+<p><em>Sparse data with cell versions</em></p>
+<p>Versioning is built in. A put is both an insert (create) and an update, and each one gets its own version. Delete gets a tombstone marker. The tombstone marker prevents the data being returned in queries. Get requests return specific version(s) based on parameters. If you do not specify any parameters, the most recent version is returned. You can configure how many versions you want to keep and this is done per column family. The default is to keep up to three versions. When the max number of versions is exceeded, extra records will be eventually removed.</p>
+<p><img src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/versioned-data.png" alt="versioned data"></p>
+<p><em>Versioned data</em></p>
+<p>In this blog post, you got an overview of HBase (and implicitly MapR-DB) and learned about the HBase/MapR-DB data model. Stay tuned for the next blog post, where I’ll take a deep dive into <a href="https://mapr.com/blog/in-depth-look-hbase-architecture">the details of the HBase architecture</a>. In the third and final blog post in this series, we’ll take a look at schema design guidelines.</p>
+<p><strong>Want to learn more?</strong></p>
+<ul>
+<li><a href="http://doc.mapr.com/display/MapR/HBase"><u>Installing HBase on MapR</u></a></li>
+<li><a href="http://doc.mapr.com/display/MapR/Working+with+HBase"><u>Getting Started with HBase on MapR</u></a></li>
+<li><a href="http://doc.mapr.com/display/components/HBase+Release+Notes"><u>Release notes for HBase on MapR</u></a></li>
+<li><a target="_blank" href="https://issues.apache.org/jira/browse/HBASE/?report=com.atlassian.jira.jira-projects-plugin:roadmap-panel&amp;selectedTab=com.atlassian.jira.jira-projects-plugin:summary-panel"><u>Apache HBase docs</u></a></li>
+</ul>
+<p></p>
+      </div>
+
+      <div class="col-md-3 col-lg-3 col-xl-offset-1">
+        <!-- Begin the search form -->
+        <form id="body-search" action="https://mapr.com/search/" onsubmit="return submitSearchQuery(&#39;body-search&#39;);">
+          <input type="text" id="body-search-q" name="q" placeholder="search" size="30" onkeyup="performSearchQuery(&#39;body-search&#39;)">
+          <input type="hidden" id="body-search-l" name="l" value="en">
+        	<input type="hidden" id="body-search-t" name="t" value="blog">
+        </form>
+        
+        <div id="search-results" class="search-results"></div>
+        
+        <!-- End the search form -->
+
+        <h6>
+          CATEGORIES
+        </h6>
+        <div class="side-bar-list">
+          <a href="https://mapr.com/blog/">All</a>
+          <a href="https://mapr.com/blog/category/apache-drill/">Apache Drill</a>
+          <a href="https://mapr.com/blog/category/apache-hadoop/">Apache Hadoop</a>
+          <a href="https://mapr.com/blog/category/apache-hive/">Apache Hive</a>
+          <a href="https://mapr.com/blog/category/apache-mesos/">Apache Mesos</a>
+          <a href="https://mapr.com/blog/category/apache-myriad/">Apache Myriad</a>
+          <a href="https://mapr.com/blog/category/apache-spark/">Apache Spark</a>
+          <a href="https://mapr.com/blog/category/cloud-computing/">Cloud Computing</a>
+          <a href="https://mapr.com/blog/category/enterprise-data-hub/">Enterprise Data Hub</a>
+          <a href="https://mapr.com/blog/category/machine-learning/">Machine Learning</a>
+          <a href="https://mapr.com/blog/category/partners/">MapR Partners</a>
+          <a href="https://mapr.com/blog/category/mapr-platform/">MapR Platform</a>
+          <a href="https://mapr.com/blog/category/mapreduce/">MapReduce</a>
+          <a href="https://mapr.com/blog/category/nosql/">NoSQL</a>
+          <a href="https://mapr.com/blog/category/open-source-software/">Open Source Software</a>
+          <a href="https://mapr.com/blog/category/streaming/">Streaming</a>
+          <a href="https://mapr.com/blog/category/use-cases/">Use Cases</a>
+          <a href="https://mapr.com/blog/category/whiteboard-walkthrough-videos/">Whiteboard Walkthrough Videos</a>
+        </div>
+
+        <form action="https://mapr.com/blog/hbase-and-mapr-db-designed-distribution-scale-and-speed/">
+          <div class="form-group">
+            <label for="first_name">First name</label>
+            <input id="first_name" name="first_name" type="text">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email">
+          </div>
+          <button type="submit" class="btn-red">SUBSCRIBE NOW</button>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-9 col-xl-8">
+        <div id="disqus_thread"><iframe id="dsq-app1" name="dsq-app1" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/saved_resource.html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 1937px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+        <script>
+        var disqus_config = function () {
+        this.page.url = 'http://default/blog/hbase-and-mapr-db-designed-distribution-scale-and-speed';
+        this.page.identifier = 'node/12346';
+        };
+        (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://maprblog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;</noscript>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="mod-1-4-footer">
+  <div class="container">
+    <div class="row footer-subnav">
+      <div class="col-xs-6 col-sm-4">
+        <a href="https://mapr.com/why-mapr/"><h6>Why MAPR</h6></a>
+        <a href="https://mapr.com/products/">Products &amp; Services</a>
+        <a href="https://mapr.com/solutions/">Solutions</a>
+        <a href="https://mapr.com/customers/">Customers</a>
+        <a href="https://mapr.com/training/">Training</a>
+        <a href="https://mapr.com/blog/">Blog</a>
+      </div>
+      <div class="col-xs-6 col-sm-4">
+        <a href="https://mapr.com/company/"><h6>Company</h6></a>
+        <a href="https://mapr.com/company/leadership/">Leadership</a>
+        <a href="https://mapr.com/partners/">Partners</a>
+        <a href="https://mapr.com/company/investors/">Investors</a>
+        <a href="https://mapr.com/company/careers/">Careers</a>
+        <a href="https://mapr.com/company/press-releases/">Press</a>
+        <a href="https://mapr.com/company/news/">News</a>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <a href="https://mapr.com/company/contact-mapr/"><h6>Contact Us</h6></a>
+        <a href="mailto:sales@mapr.com"><p>
+          Contact Sales <img class="icon-tiny" src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/icon_talkBubble.svg" alt="email MapR Sales">
+        </p></a>
+        <a href="tel:4089142390"><p>
+          United States: +1 408-914-2390
+        </p></a>
+        <a href="tel:8556696277"><p>
+          Outside the US: +1 855-NOW-MAPR
+        </p></a>
+        <a href="https://mapr.com/legal/"><h6>
+          Legal
+        </h6></a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 col-sm-push-8 col-md-4 col-md-push-8">
+        <div class="social-wrap">
+          <a href="https://www.linkedin.com/company/mapr-technologies" target="_blank">
+            <img src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/social_linkedIn.svg" alt="MapR LinkedIn">
+          </a>
+          <a href="https://www.facebook.com/maprtech/" target="_blank">
+            <img src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/social_facebook.svg" alt="MapR Facebook">
+          </a>
+          <a href="https://twitter.com/mapr" target="_blank">
+            <img src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/social_twitter.svg" alt="MapR Twitter">
+          </a>
+          <a href="https://www.youtube.com/user/maprtech" target="_blank">
+            <img src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/social_youTube.svg" alt="MapR YouTube">
+          </a>
+          <a href="https://mapr.com/company/contact-mapr/">
+            <img src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/social_email.svg" alt="ContactMapR">
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-8 col-sm-pull-4 col-md-8 col-md-pull-4">
+        <p class="copyright">
+          © 2017 MapR Technologies, Inc. All Rights Reserved
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div id="bottom_scripts">
+      <script src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/bootstrap.min.js.download"></script>
+      <script src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/main.js.download"></script>
+    </div>
+<script async="" src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/loadGTMold.js.download"></script>
+<script async="" src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/loadGTMnew.js.download"></script>
+<!-- Old Google Tag Manager (noscript) -->
+<noscript>&lt;iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJS58W"
+height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript>
+<!-- End Old Google Tag Manager (noscript) -->
+<!-- New Google Tag Manager (noscript) -->
+<noscript>&lt;iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJFL7CH"
+height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript>
+<!-- End New Google Tag Manager (noscript) -->
+
+
+
+<iframe style="display: none;" src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/saved_resource(1).html"></iframe><script type="text/javascript" id="" src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/divolte.js.download"></script><script type="application/ld+json">
+{ 
+  "@context" : "http://schema.org",
+  "@type" : "Organization",
+  "url" : "https://www.mapr.com/",
+  "logo": "https://www.mapr.com/sites/default/files/mapr-logo-max_1.png",
+  "name" : "MapR Technologies, Inc.",
+  "sameAs" : [ 
+  	"https://www.twitter.com/mapr",
+  	"https://www.facebook.com/maprtech", 
+  	"https://www.linkedin.com/company/mapr-technologies",
+  	"https://plus.google.com/+MaprTechnologies" 
+  	],
+  "contactPoint" : [{
+    "@type" : "ContactPoint",
+    "telephone" : "+1-408-914-2390",
+    "contactType" : "customer service"
+  }]
+}
+</script><script type="text/javascript" id="">(function(b,c,e,g,d){var f,a;b[d]=b[d]||[];f=function(){var a={ti:"5117358"};a.q=b[d];b[d]=new UET(a);b[d].push("pageLoad")};a=c.createElement(e);a.src=g;a.async=1;a.onload=a.onreadystatechange=function(){var b=this.readyState;b&&"loaded"!==b&&"complete"!==b||(f(),a.onload=a.onreadystatechange=null)};c=c.getElementsByTagName(e)[0];c.parentNode.insertBefore(a,c)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script><script type="text/javascript" id="" src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/99a96f9c551411e687d01227d54986f3.js.download"></script><script type="text/javascript" id="">console.log("marketo form code fired 1");(function(){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://":"http://")+"s3.amazonaws.com/hostedwebfiles/gacookiegen.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(a,c)})();var clientId="";whenAvailable("ga",function(a){ga(function(a){clientId=ga.getAll()[0].get("clientId");"string"!=typeof clientId&&(clientId="notSet")})});
+setTimeout(function(){var a=function(){function a(a,b,c){if(!a||""==a||!b||""==b||!c||""==c)return"-";var d,e="-";d=a.indexOf(b);b=b.indexOf("\x3d")+1;-1<d&&(c=a.indexOf(c,d),0>c&&(c=a.length),e=a.substring(d+b,c));return e}var b=a(document.cookie,"__utmabz\x3d",";");this.source=a(b,"utmcsr\x3d","|");this.medium=a(b,"utmcmd\x3d","|");this.term=a(b,"utmctr\x3d","|");this.content=a(b,"utmcct\x3d","|");this.campaign=a(b,"utmccn\x3d","|");b=b.split(".");this.uid=b=b[0]+"."+b[1]};myGaInfo=new a;"(not%20set)"==
+myGaInfo.source&&(myGaInfo.source="");"(not%20set)"==myGaInfo.medium&&(myGaInfo.medium="");"(not%20set)"==myGaInfo.campaign&&(myGaInfo.campaign="");"(not%20set)"==myGaInfo.content&&(myGaInfo.content="");""!=myGaInfo.gclid&&"undefined"!=typeof myGaInfo.gclid&&"-"!=myGaInfo.gclid&&(myGaInfo.source="google",myGaInfo.medium="cpc");console.log("marketo source: "+("-"==myGaInfo.source?"":myGaInfo.source));console.log("marketo medium: "+("-"==myGaInfo.medium?"":myGaInfo.medium));console.log("marketo term: "+
+("-"==myGaInfo.term?"":myGaInfo.term));console.log("marketo content: "+("-"==myGaInfo.content?"":myGaInfo.content));console.log("marketo campaign: "+("-"==myGaInfo.campaign?"":myGaInfo.campaign));console.log("clientid line 110\x3d"+clientId);try{var c=document.getElementById("ga_Source__c"),d=document.getElementById("ga_Medium__c"),e=document.getElementById("ga_Campaign__c"),f=document.getElementById("ga_Term__c"),g=document.getElementById("ga_Content__c");document.getElementById("ga_Cid__c").value=
+clientId;c&&"-"!=myGaInfo.source&&(c.value=myGaInfo.source);d&&"-"!=myGaInfo.medium&&(d.value=myGaInfo.medium);e&&"-"!=myGaInfo.campaign&&(e.value=myGaInfo.campaign);f&&"-"!=myGaInfo.term&&(f.value=myGaInfo.term);g&&"-"!=myGaInfo.content&&(g.value=myGaInfo.content)}catch(h){console.log("Marketo and GA integration:"+h.message)}},3E3);function whenAvailable(a,c){var d=50;window.setTimeout(function(){window[a]?c(window[a]):window.setTimeout(arguments.callee,d)},d)};</script><div style="display: none; visibility: hidden;"><script type="text/javascript">for(var elements=document.getElementsByClassName("block block-block contextual-links-region last even"),i=0;i<elements.length;i++)elements[i].style.display="none";</script>
+
+</div><script type="text/javascript" id="" src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/SmartForms.js.download"></script><script type="text/javascript" id="" src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/SmartForms.js.download"></script><script type="text/javascript" id="">(function(c,h,m,u){var n={elements:["iframe#dsq-app1","footer"],minHeight:0,percentage:!1,testing:!1,userTiming:!1},k=c(h),f=[];c.scrollDepth=function(d){function l(a,b,e){d.testing?c("#console").html(a+": "+b):"undefined"!==typeof dataLayer?dataLayer.push({event:"ScrollDistance",eventCategory:"Scroll Depth",eventAction:a,eventLabel:b,eventValue:(e/1E3%60).toFixed(),eventNonInteraction:!0}):("undefined"!==typeof ga&&(ga("send","event","Scroll Depth",a,b,1,{nonInteraction:1}),2<arguments.length&&ga("send",
+"timing","Scroll Depth",a,e,b)),"undefined"!==typeof _gaq&&(_gaq.push(["_trackEvent","Scroll Depth",a,b,1,!0]),2<arguments.length&&_gaq.push(["_trackTiming","Scroll Depth",a,e,b,100])))}function p(a,b,e){c.each(a,function(a,g){-1===c.inArray(a,f)&&b>=g&&(l("Percentage",a,e),f.push(a))})}function q(a,b,e){c.each(a,function(a,g){-1===c.inArray(g,f)&&c(g).length&&b>=c(g).offset().top&&(l("Elements",g,e),f.push(g))})}function r(a,b){var e,c,g,d=null,f=0,k=function(){f=new Date;d=null;g=a.apply(e,c)};
+return function(){var h=new Date;f||(f=h);var l=b-(h-f);e=this;c=arguments;0>=l?(clearTimeout(d),d=null,f=h,g=a.apply(e,c)):d||(d=setTimeout(k,l));return g}}var t=+new Date;d=c.extend({},n,d);c(m).height()<d.minHeight||(l("Percentage","Baseline"),k.on("scroll.scrollDepth",r(function(){var a=c(m).height(),b=h.innerHeight?h.innerHeight:k.height(),b=k.scrollTop()+b,a={"25%":parseInt(.25*a,10),"50%":parseInt(.5*a,10),"75%":parseInt(.75*a,10),"100%":a-1},e=+new Date-t;f.length>=4+d.elements.length?k.off("scroll.scrollDepth"):
+(d.elements&&q(d.elements,b,e),d.percentage&&p(a,b,e))},500)))}})(jQuery,window,document);jQuery.scrollDepth();</script><script type="text/javascript" id="" src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/SmartForms.js.download"></script><div style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.8006676859222182"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.11358464517879274" width="0" height="0" alt="" src="./HBase and MapR-DB_ Designed for Distribution, Scale, and Speed _ MapR_files/0"></div></body></html>

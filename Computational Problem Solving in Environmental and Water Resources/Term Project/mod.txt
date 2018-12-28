@@ -1,0 +1,40 @@
+% forward elimination
+for k = 1:m-1
+    for k = 1:m-1
+        factor = Aug(l,k)/Aug(k,k);
+        Aug (l, k:nb) = Aug(l,k:nb)-factor*Aug(k, k:nb);
+        % for k=1
+            % inner loop will be from i=2 to n ...> number of iteration n-1
+                %for every one of the iteration
+                    % division -- 1
+                    %muliplication 2 to nb ...> n+1 -1
+                    % --> muliplication + division: n+1
+                    % ---> subtraction: nb-k=n+1-1 =n
+            %inner loop: (n-1)(n+1) multiiplication/division
+                        % (n-1)n   subtraction
+                        
+        % iteration k =k
+            % inner loop i=k+1 to n > number of iterations n-k
+                % multiplication  k+1 to nb=n+1  : n+1-k=n-k+1
+                %   division 1
+                % subtract: (n+1-k)
+            %inner loop: (n-k)(n-k+1+1) multiiplication/division
+                        % (n-k)(n+1-k)   subtraction
+               
+       % total -- summarize k=1 to n-1
+        %Sigma (n-k)(n-k+2)
+        %Sigma (n-k)(n+1-k), k=1 to n-1  ---subtraction
+    end
+end
+
+% back substitution
+A = zeros(m,1);
+A(m)= Aug(m,nb)/Aug(m,m);  % one division
+    for t = m-1: -1: 1
+    A(t) = (Aug(t,nb)-Aug(t,t+1:m)*A(t+1:m))/Aug(t,t);
+    % multiplicaiton: i+1 to n: n-(i+1)+1 = n-i
+    %addition: n-i-1
+    %subtraction: 1
+    %division:1
+A
+    end

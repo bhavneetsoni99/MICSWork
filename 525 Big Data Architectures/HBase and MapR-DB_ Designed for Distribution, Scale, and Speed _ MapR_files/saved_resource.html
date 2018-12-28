@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<!-- saved from url=(0396)https://disqus.com/embed/comments/?base=default&f=maprblog&t_i=node%2F12346&t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&s_o=default#version=ac56d9763d3402d73ef9eb2fd22bfea3 -->
+<html lang="en" dir="ltr" class="js no-touch localstorage sessionstorage contenteditable use-opacity-transitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Disqus Comments</title>
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <style>
+        .alert--warning {
+            border-radius: 3px;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            background-color: #FFE070;
+            color: #A47703;
+        }
+
+        .alert--warning a,
+        .alert--warning a:hover,
+        .alert--warning strong {
+            color: #A47703;
+            font-weight: bold;
+        }
+
+        .alert--error p,
+        .alert--warning p {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        
+        </style>
+    
+    <style>
+        html {
+            overflow: hidden;
+        }
+
+        #error {
+            display: none;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        
+    </style>
+
+<script crossorigin="anonymous" id="bootstrap-script" data-app="lounge" src="./lounge.load.ac56d9763d3402d73ef9eb2fd22bfea3.js.download"></script><meta http-equiv="Content-Security-Policy" content="script-src https:;"><link rel="stylesheet" href="./lounge.c1f55c45ca93f97bb7348ad6fcda5189.css"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="lounge/main" src="./lounge.bundle.dfd25d105efbda46a9b23f265622e674.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="remote/config" src="./config.js.download"></script><style id="css_1491620399382"></style><!--<base target="_parent">--><base href="." target="_parent"><link rel="stylesheet" href="./discovery.ec9371c4ef39ecee074c2acf24d5e0e2.css"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="ga" src="./ga.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="discovery/main" src="./discovery.bundle.c1279f7b6402d990698b3b99593a7fa9.js.download"></script></head>
+<body>
+    
+
+    
+    <div id="error" class="alert--error">
+        <p>We were unable to load Disqus. If you are a moderator please see our <a href="https://docs.disqus.com/help/83/"> troubleshooting guide</a>. </p>
+    </div>
+
+    
+    <script type="text/json" id="disqus-forumData">{"session":{"canModerate":false,"audienceSyncVerified":false,"mustVerify":false,"canReply":true,"mustVerifyEmail":false},"features":{},"forum":{"founder":"94476465","twitterName":"","guidelines":null,"favicon":{"permalink":"https://disqus.com/api/forums/favicons/maprblog.jpg","cache":"//a.disquscdn.com/1490734007/images/favicon-default.png"},"disableDisqusBranding":false,"daysAlive":0,"createdAt":"2014-02-09T02:48:01.295250","category":"Tech","raw_guidelines":null,"id":"maprblog","installCompleted":true,"pk":"2833547","channel":null,"description":"","raw_description":"","permissions":{},"name":"mapr.com","language":"en","settings":{"supportLevel":0,"adsDRNativeEnabled":false,"colorScheme":"auto","adsVideoEnabled":false,"allowAnonPost":false,"ssoRequired":false,"unapproveLinks":false,"linkAffiliationEnabled":true,"adsProductLinksThumbnailsEnabled":false,"adsProductStoriesEnabled":false,"organicDiscoveryEnabled":true,"disable3rdPartyTrackers":false,"adsProductDisplayEnabled":false,"discoveryMax":false,"adsProductLinksEnabled":false,"hasCustomAvatar":false,"moderatorText":"","adsEnabled":false,"adsPositionTopEnabled":false,"allowMedia":true,"adultContent":false,"promotedDiscoveryEnabled":false,"allowAnonVotes":false,"adsProductVideoEnabled":false,"mustVerify":true,"discoveryThumbnailsEnabled":false,"mustVerifyEmail":true,"audienceSyncEnabled":false,"typeface":"auto","adsPositionBottomEnabled":false,"mediaembedEnabled":true,"discoveryLocked":false,"validateAllPosts":true,"adsSettingsLocked":false,"isVIP":false,"adsPositionInthreadEnabled":false},"organizationId":3805714,"url":"https://mapr.com","daysThreadAlive":0,"avatar":{"small":{"permalink":"https://disqus.com/api/forums/avatars/maprblog.jpg?size=32","cache":"//a.disquscdn.com/1490734007/images/noavatar32.png"},"large":{"permalink":"https://disqus.com/api/forums/avatars/maprblog.jpg?size=92","cache":"//a.disquscdn.com/1490734007/images/noavatar92.png"}},"signedUrl":"https://disq.us/?url=https%3A%2F%2Fmapr.com&key=gXYqSf7ToXxFKKqnN19C4Q"}}</script>
+
+    
+    <script type="text/json" id="disqus-threadData">{"cursor":{"hasPrev":false,"prev":null,"total":9,"hasNext":false,"next":"1:0:0"},"code":0,"response":{"lastModified":1485990373,"posts":[{"dislikes":0,"numReports":0,"likes":1,"message":"\u003cp>This is a good reference for Understanding  NoSQL \u003ca href=\"http://disq.us/url?url=http%3A%2F%2Fmartinfowler.com%2Fbooks%2Fnosql.html%3AvQ8P6tDo4jZqyFwFiPK_cpogAr0&amp;cuid=2833547\" rel=\"nofollow noopener\">http://martinfowler.com/boo...\u003c/a>\u003c/p>","id":"2102273007","isHighlighted":false,"author":{"username":"disqus_PlXKgkqJr7","about":"","name":"Carol McDonald","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.272875,"profileUrl":"https://disqus.com/by/disqus_PlXKgkqJr7/","url":"","reputation":1.272875,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2015-04-21T18:27:04","id":"154582844","reputationLabel":"Average","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/disqus_PlXKgkqJr7.jpg","cache":"https://c.disquscdn.com/uploads/users/15458/2844/avatar32.jpg?1429640826"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/disqus_PlXKgkqJr7.jpg","cache":"https://c.disquscdn.com/uploads/users/15458/2844/avatar92.jpg?1429640826","large":{"permalink":"https://disqus.com/api/users/avatars/disqus_PlXKgkqJr7.jpg","cache":"https://c.disquscdn.com/uploads/users/15458/2844/avatar92.jpg?1429640826"}}},"media":[],"isSpam":false,"isDeletedByAuthor":false,"createdAt":"2015-06-26T20:44:26","parent":null,"isApproved":true,"isDeleted":false,"isFlagged":false,"raw_message":"This is a good reference for Understanding  NoSQL http://martinfowler.com/books/nosql.html","canVote":false,"thread":"3881959643","forum":"maprblog","depth":0,"points":1,"moderationLabels":["links"],"isEdited":false},{"dislikes":0,"numReports":0,"likes":0,"message":"\u003cp>easy understanding\u003c/p>","id":"3132608894","isHighlighted":false,"author":{"username":"li_ao","about":"","name":"Li Ao","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.2363009999999999,"profileUrl":"https://disqus.com/by/li_ao/","url":"","reputation":1.2363009999999999,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2016-04-26T03:00:54","id":"205826200","reputationLabel":"Average","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/li_ao.jpg","cache":"https://c.disquscdn.com/uploads/users/20582/6200/avatar32.jpg?1485976933"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/li_ao.jpg","cache":"https://c.disquscdn.com/uploads/users/20582/6200/avatar92.jpg?1485976933","large":{"permalink":"https://disqus.com/api/users/avatars/li_ao.jpg","cache":"https://c.disquscdn.com/uploads/users/20582/6200/avatar92.jpg?1485976933"}}},"media":[],"isSpam":false,"isDeletedByAuthor":false,"createdAt":"2017-02-01T19:22:12","parent":null,"isApproved":true,"isDeleted":false,"isFlagged":false,"raw_message":"easy understanding","canVote":false,"thread":"3881959643","forum":"maprblog","depth":0,"points":0,"moderationLabels":[],"isEdited":false},{"dislikes":0,"numReports":0,"likes":0,"message":"\u003cp>Very crisp and neat explanation of Hbase basics. Thanks Carol.\u003c/p>","id":"2782254715","isHighlighted":false,"author":{"username":"venkatasrinivasaraokolla","about":"","name":"venkata srinivasarao kolla","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.23667,"profileUrl":"https://disqus.com/by/venkatasrinivasaraokolla/","url":"","reputation":1.23667,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2016-07-14T06:51:20","id":"215033473","reputationLabel":"Average","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/venkatasrinivasaraokolla.jpg","cache":"//a.disquscdn.com/1490734007/images/noavatar32.png"},"isCustom":false,"permalink":"https://disqus.com/api/users/avatars/venkatasrinivasaraokolla.jpg","cache":"//a.disquscdn.com/1490734007/images/noavatar92.png","large":{"permalink":"https://disqus.com/api/users/avatars/venkatasrinivasaraokolla.jpg","cache":"//a.disquscdn.com/1490734007/images/noavatar92.png"}}},"media":[],"isSpam":false,"isDeletedByAuthor":false,"createdAt":"2016-07-14T06:52:40","parent":null,"isApproved":true,"isDeleted":false,"isFlagged":false,"raw_message":"Very crisp and neat explanation of Hbase basics. Thanks Carol.","canVote":false,"thread":"3881959643","forum":"maprblog","depth":0,"points":0,"moderationLabels":[],"isEdited":false},{"dislikes":0,"numReports":0,"likes":0,"message":"\u003cp>Hi Carol, a small typo in ur \"Versioned data\" graph. Default number equals to 1(3).\u003c/p>","id":"2725985907","isHighlighted":false,"author":{"username":"eugene_liu","about":"","name":"Eugene Liu","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.235932,"profileUrl":"https://disqus.com/by/eugene_liu/","url":"","reputation":1.235932,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2016-06-12T06:19:57","id":"211316670","reputationLabel":"Average","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/eugene_liu.jpg","cache":"//a.disquscdn.com/1490734007/images/noavatar32.png"},"isCustom":false,"permalink":"https://disqus.com/api/users/avatars/eugene_liu.jpg","cache":"//a.disquscdn.com/1490734007/images/noavatar92.png","large":{"permalink":"https://disqus.com/api/users/avatars/eugene_liu.jpg","cache":"//a.disquscdn.com/1490734007/images/noavatar92.png"}}},"media":[],"isSpam":false,"isDeletedByAuthor":false,"createdAt":"2016-06-12T06:22:52","parent":null,"isApproved":true,"isDeleted":false,"isFlagged":false,"raw_message":"Hi Carol, a small typo in ur \"Versioned data\" graph. Default number equals to 1(3).","canVote":false,"thread":"3881959643","forum":"maprblog","depth":0,"points":0,"moderationLabels":[],"isEdited":false},{"dislikes":0,"numReports":0,"likes":0,"message":"\u003cp>This is really nicely written .....and really good one for people starting HBase.\u003c/p>","id":"2572245303","isHighlighted":false,"author":{"username":"disqus_mMZnNKiaWX","about":"","name":"Manish","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.235932,"profileUrl":"https://disqus.com/by/disqus_mMZnNKiaWX/","url":"","reputation":1.235932,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2016-03-16T06:00:26","id":"200588296","reputationLabel":"Average","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/disqus_mMZnNKiaWX.jpg","cache":"//a.disquscdn.com/1490734007/images/noavatar32.png"},"isCustom":false,"permalink":"https://disqus.com/api/users/avatars/disqus_mMZnNKiaWX.jpg","cache":"//a.disquscdn.com/1490734007/images/noavatar92.png","large":{"permalink":"https://disqus.com/api/users/avatars/disqus_mMZnNKiaWX.jpg","cache":"//a.disquscdn.com/1490734007/images/noavatar92.png"}}},"media":[],"isSpam":false,"isDeletedByAuthor":false,"createdAt":"2016-03-16T06:02:45","parent":null,"isApproved":true,"isDeleted":false,"isFlagged":false,"raw_message":"This is really nicely written .....and really good one for people starting HBase.","canVote":false,"thread":"3881959643","forum":"maprblog","depth":0,"points":0,"moderationLabels":[],"isEdited":false},{"dislikes":0,"numReports":0,"likes":0,"message":"\u003cp>MapR Adds Complete HBase Certification Curriculum to Free Hadoop On-Demand Training \u003ca href=\"https://disq.us/url?url=https%3A%2F%2Fwww.mapr.com%2Fservices%2Fmapr-academy%2Fbig-data-hadoop-online-training%3ABzRcObZqOCi54t4xPotuHTz2reU&amp;cuid=2833547\" rel=\"nofollow noopener\">https://www.mapr.com/servic...\u003c/a>\u003c/p>","id":"2180015234","isHighlighted":false,"author":{"username":"disqus_PlXKgkqJr7","about":"","name":"Carol McDonald","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.272875,"profileUrl":"https://disqus.com/by/disqus_PlXKgkqJr7/","url":"","reputation":1.272875,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2015-04-21T18:27:04","id":"154582844","reputationLabel":"Average","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/disqus_PlXKgkqJr7.jpg","cache":"https://c.disquscdn.com/uploads/users/15458/2844/avatar32.jpg?1429640826"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/disqus_PlXKgkqJr7.jpg","cache":"https://c.disquscdn.com/uploads/users/15458/2844/avatar92.jpg?1429640826","large":{"permalink":"https://disqus.com/api/users/avatars/disqus_PlXKgkqJr7.jpg","cache":"https://c.disquscdn.com/uploads/users/15458/2844/avatar92.jpg?1429640826"}}},"media":[],"isSpam":false,"isDeletedByAuthor":false,"createdAt":"2015-08-07T19:12:56","parent":null,"isApproved":true,"isDeleted":false,"isFlagged":false,"raw_message":"MapR Adds Complete HBase Certification Curriculum to Free Hadoop On-Demand Training https://www.mapr.com/services/mapr-academy/big-data-hadoop-online-training","canVote":false,"thread":"3881959643","forum":"maprblog","depth":0,"points":0,"moderationLabels":["links"],"isEdited":false},{"dislikes":0,"numReports":0,"likes":0,"message":"\u003cp>to learn more you can take free online training on HBase  :  \u003ca href=\"https://disq.us/url?url=https%3A%2F%2Fwww.mapr.com%2Fservices%2Fmapr-academy%2Fbig-data-hadoop-online-training%3ABzRcObZqOCi54t4xPotuHTz2reU&amp;cuid=2833547\" rel=\"nofollow noopener\">https://www.mapr.com/servic...\u003c/a>\u003c/p>","id":"2148830002","isHighlighted":false,"author":{"username":"disqus_PlXKgkqJr7","about":"","name":"Carol McDonald","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.272875,"profileUrl":"https://disqus.com/by/disqus_PlXKgkqJr7/","url":"","reputation":1.272875,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2015-04-21T18:27:04","id":"154582844","reputationLabel":"Average","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/disqus_PlXKgkqJr7.jpg","cache":"https://c.disquscdn.com/uploads/users/15458/2844/avatar32.jpg?1429640826"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/disqus_PlXKgkqJr7.jpg","cache":"https://c.disquscdn.com/uploads/users/15458/2844/avatar92.jpg?1429640826","large":{"permalink":"https://disqus.com/api/users/avatars/disqus_PlXKgkqJr7.jpg","cache":"https://c.disquscdn.com/uploads/users/15458/2844/avatar92.jpg?1429640826"}}},"media":[],"isSpam":false,"isDeletedByAuthor":false,"createdAt":"2015-07-21T14:20:34","parent":null,"isApproved":true,"isDeleted":false,"isFlagged":false,"raw_message":"to learn more you can take free online training on HBase  :  https://www.mapr.com/services/mapr-academy/big-data-hadoop-online-training","canVote":false,"thread":"3881959643","forum":"maprblog","depth":0,"points":0,"moderationLabels":["links"],"isEdited":true},{"dislikes":0,"numReports":0,"likes":0,"message":"\u003cp>good article but I have some comments:\u003c/p>\u003cp>- sharding automatically it is not a good idea; rows/columns from tables that are accessed together must be stored in the same shard otherwise you risk huge network traffic problems;\u003c/p>\u003cp>- database normalization makes the data fit for any use; put the data together according to an access pattern makes the data fit only for that particular pattern; in addition, having data in different table does not automatically mean storing data in different files; in Oracle, for example, you can store data from different tables in a cluster ( from the Oracle doc \"cluster is a schema object that contains data from one or more tables, all of which have one or more columns in common. Oracle Database stores together all the rows from all the tables that share the same cluster key\")\u003c/p>\u003cp>- Teradata is an MPP database, it provides sharding without loosing querying, transactions, and consistency; the same is true for Oracle Exadata;\u003c/p>","id":"2119206956","isHighlighted":false,"author":{"username":"danielmannino","about":"","name":"Daniel Mannino","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.2363009999999999,"profileUrl":"https://disqus.com/by/danielmannino/","url":"","reputation":1.2363009999999999,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2015-07-06T09:22:08","id":"164356841","reputationLabel":"Average","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/danielmannino.jpg","cache":"//a.disquscdn.com/1490734007/images/noavatar32.png"},"isCustom":false,"permalink":"https://disqus.com/api/users/avatars/danielmannino.jpg","cache":"//a.disquscdn.com/1490734007/images/noavatar92.png","large":{"permalink":"https://disqus.com/api/users/avatars/danielmannino.jpg","cache":"//a.disquscdn.com/1490734007/images/noavatar92.png"}}},"media":[],"isSpam":false,"isDeletedByAuthor":false,"createdAt":"2015-07-06T10:54:43","parent":null,"isApproved":true,"isDeleted":false,"isFlagged":false,"raw_message":"good article but I have some comments:\n\n- sharding automatically it is not a good idea; rows/columns from tables that are accessed together must be stored in the same shard otherwise you risk huge network traffic problems;\n\n- database normalization makes the data fit for any use; put the data together according to an access pattern makes the data fit only for that particular pattern; in addition, having data in different table does not automatically mean storing data in different files; in Oracle, for example, you can store data from different tables in a cluster ( from the Oracle doc \"cluster is a schema object that contains data from one or more tables, all of which have one or more columns in common. Oracle Database stores together all the rows from all the tables that share the same cluster key\")\n\n- Teradata is an MPP database, it provides sharding without loosing querying, transactions, and consistency; the same is true for Oracle Exadata;","canVote":false,"thread":"3881959643","forum":"maprblog","depth":0,"points":0,"moderationLabels":[],"isEdited":false},{"dislikes":0,"numReports":0,"likes":0,"message":"\u003cp>Sharding automatically works really well with MapR-DB,  you can watch this happen in the HBase training bulk import exercise. You should design your rowkey so that rows/columns accessed together are stored together.\u003cbr>Yes Database normalization works well for querying different ways, but it is does not scale for BIG data. I have seen customers moving off of Oracle because they had lots of data that they were flattening anyway,  and they were paying big bucks for features that were not scalable\u003c/p>","id":"2126399639","isHighlighted":false,"author":{"username":"disqus_PlXKgkqJr7","about":"","name":"Carol McDonald","disable3rdPartyTrackers":false,"isPowerContributor":false,"isAnonymous":false,"rep":1.272875,"profileUrl":"https://disqus.com/by/disqus_PlXKgkqJr7/","url":"","reputation":1.272875,"location":"","isPrivate":false,"signedUrl":"","isPrimary":true,"joinedAt":"2015-04-21T18:27:04","id":"154582844","reputationLabel":"Average","avatar":{"small":{"permalink":"https://disqus.com/api/users/avatars/disqus_PlXKgkqJr7.jpg","cache":"https://c.disquscdn.com/uploads/users/15458/2844/avatar32.jpg?1429640826"},"isCustom":true,"permalink":"https://disqus.com/api/users/avatars/disqus_PlXKgkqJr7.jpg","cache":"https://c.disquscdn.com/uploads/users/15458/2844/avatar92.jpg?1429640826","large":{"permalink":"https://disqus.com/api/users/avatars/disqus_PlXKgkqJr7.jpg","cache":"https://c.disquscdn.com/uploads/users/15458/2844/avatar92.jpg?1429640826"}}},"media":[],"isSpam":false,"isDeletedByAuthor":false,"createdAt":"2015-07-09T12:56:59","parent":2119206956,"isApproved":true,"isDeleted":false,"isFlagged":false,"raw_message":"Sharding automatically works really well with MapR-DB,  you can watch this happen in the HBase training bulk import exercise. You should design your rowkey so that rows/columns accessed together are stored together.\nYes Database normalization works well for querying different ways, but it is does not scale for BIG data. I have seen customers moving off of Oracle because they had lots of data that they were flattening anyway,  and they were paying big bucks for features that were not scalable","canVote":false,"thread":"3881959643","forum":"maprblog","depth":1,"points":0,"moderationLabels":[],"isEdited":true}],"thread":{"feed":"https://maprblog.disqus.com/hbase_and_mapr_db_designed_for_distribution_scale_and_speed/latest.rss","identifiers":["node/12346"],"dislikes":0,"likes":1,"message":"","id":"3881959643","createdAt":"2015-06-26T16:38:54","category":"2875922","author":"35109356","isSpam":false,"signedLink":"https://disq.us/?url=https%3A%2F%2Fwww.mapr.com%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&key=kwDDQCEFjurjPw2MMhsUUg","isDeleted":false,"hasStreaming":false,"raw_message":"","isClosed":false,"link":"https://www.mapr.com/blog/hbase-and-mapr-db-designed-distribution-scale-and-speed","slug":"hbase_and_mapr_db_designed_for_distribution_scale_and_speed","forum":"maprblog","clean_title":"HBase and MapR-DB: Designed for Distribution, Scale, and Speed","posts":9,"moderators":[118082886,94476465,94131100,35109356,246945374],"title":"HBase and MapR-DB: Designed for Distribution, Scale, and Speed","highlightedPost":null}},"order":"popular"}</script>
+
+    
+
+    <div id="fixed-content"></div>
+
+
+    
+        
+<script type="text/json" id="disqus-urls">{
+    "root":"//disqus.com",
+    "next":"https://c.disquscdn.com/next/current/embed"
+}</script>
+
+        
+        <script>!function () {
+            var d = document;
+            var toH = d.head.appendChild.bind(d.head);
+
+            var v = window.location.href.match(/[#&?]version=([0-9a-f]{32})/);
+            var src = 'https://c.disquscdn.com/next/embed/lounge.load';
+            if (v)
+                src += '.' + v[1];
+            src += '.js';
+
+            var s = d.createElement('script');
+            s.crossOrigin = 'anonymous';
+            s.id = 'bootstrap-script';
+            s.setAttribute('data-app', 'lounge');
+            s.src = src;
+            toH(s);
+
+            var m = d.createElement('meta');
+            m.setAttribute('http-equiv', 'Content-Security-Policy');
+            m.setAttribute('content', "script-src https:;");
+            toH(m);
+        }();</script>
+    
+
+
+<script src="./common.bundle.c27838a992cbceaa2af5d74dbcde7b88.js.download"></script><iframe style="display: none;" src="./saved_resource(2).html"></iframe><div id="layout" data-tracking-area="layout">
+
+<div id="onboard" data-tracking-area="onboard"></div>
+
+<div id="highlighted-post" data-tracking-area="highlighted" class="highlighted-post" style="display: none;"></div>
+
+<div id="global-alert"></div>
+
+<header id="main-nav" data-tracking-area="main-nav">
+<nav class="nav nav-primary">
+<ul>
+<li class="nav-tab nav-tab--primary tab-conversation active" data-role="post-count"><a class="publisher-nav-color">
+<span class="comment-count">
+9 comments
+</span>
+
+<span class="comment-count-placeholder">
+Comments
+</span>
+</a>
+</li>
+<li class="nav-tab nav-tab--primary tab-community">
+<a href="https://disqus.com/home/forums/maprblog/" class="publisher-nav-color" data-action="community-sidebar" data-forum="maprblog" id="community-tab">
+<span class="community-name">
+<strong>mapr.com</strong>
+
+</span>
+
+<strong class="community-name-placeholder">Community</strong>
+</a>
+</li>
+<li class="nav-tab nav-tab--primary dropdown user-menu" data-role="logout"><a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" class="dropdown-toggle" data-toggle="dropdown">
+<span class="dropdown-toggle-wrapper">
+
+<span>
+Login
+</span>
+
+</span> <span class="caret"></span>
+</a>
+<ul class="dropdown-menu">
+
+
+<li>
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="auth:disqus">Disqus</a>
+</li>
+<li>
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="auth:facebook">Facebook</a>
+</li>
+<li>
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="auth:twitter">Twitter</a>
+</li>
+<li>
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="auth:google">Google</a>
+</li>
+
+
+
+</ul>
+</li>
+<li class="nav-tab nav-tab--primary notification-menu unread" data-role="notification-menu"><a href="https://disqus.com/home/inbox/" class="notification-container" data-action="home" data-home-path="home/inbox/">
+<span class="notification-icon icon-comment" aria-hidden=""></span>
+<span class="notification-count" data-role="notification-count">1</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+
+<section id="conversation" data-role="main" data-tracking-area="main">
+<div class="nav nav-secondary" data-tracking-area="secondary-nav">
+<ul>
+<li id="recommend-button" class="nav-tab nav-tab--secondary recommend dropdown">
+<div class="thread-likes"><a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="recommend" title="Recommend this discussion" class="dropdown-toggle ">
+<span class="label label-default"><span class="recommend-icon icon-heart-empty"></span> Recommend</span>
+<span class="label label-recommended"><span class="recommend-icon icon-heart"></span> Recommended</span>
+<span class="label label-count">1</span>
+</a>
+<ul class="dropdown-menu dropdown-menu--coachmark">
+<li>
+<h2 class="coachmark__heading">Discussion Recommended!</h2>
+<p class="coachmark__description">Recommending means this is a discussion worth sharing. It gets shared to your followers' Disqus feeds, and gives the creator kudos!</p>
+<a href="https://disqus.com/home/?utm_source=disqus_embed&amp;utm_content=recommend_btn" class="btn btn-primary coachmark__button" target="_blank">
+ Find More Discussions 
+</a>
+</li>
+</ul>
+</div></li>
+<li id="thread-share-menu" class="nav-tab nav-tab--secondary dropdown share-menu hidden-sm"><a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" class="dropdown-toggle" data-toggle="dropdown" title="Share">
+<span class="icon-export"></span>
+<span class="label">Share</span>
+</a>
+<ul class="share-menu dropdown-menu">
+<li>
+<div class="share-menu__label">Share this discussion on</div>
+<ul>
+<li class="twitter">
+<a data-action="share:twitter" href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#">Twitter</a>
+</li>
+<li class="facebook">
+<a data-action="share:facebook" href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#">Facebook</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li data-role="post-sort" class="nav-tab nav-tab--secondary dropdown sorting pull-right">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" class="dropdown-toggle" data-toggle="dropdown">
+Sort by Best
+
+
+<span class="caret"></span>
+</a>
+<ul class="dropdown-menu pull-right">
+<li class="selected">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="sort" data-sort="popular">Best<i aria-hidden="true" class="icon-checkmark"></i></a>
+</li>
+
+<li>
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="sort" data-sort="desc">Newest<i aria-hidden="true" class="icon-checkmark"></i></a>
+</li>
+
+<li>
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="sort" data-sort="asc">Oldest<i aria-hidden="true" class="icon-checkmark"></i></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<div id="posts">
+<div id="form" class="textarea-wrapper--top-level"><form class="reply">
+<div class="postbox">
+<div role="alert"></div>
+<div class="avatar">
+<span class="user">
+<img data-role="user-avatar" src="./noavatar92.7b2fde640943965cc88df0cdee365907.png" alt="Avatar">
+</span>
+</div>
+
+<div class="textarea-wrapper" data-role="textarea" dir="auto"><div><span class="placeholder">Join the discussion…</span><div class="textarea" tabindex="0" role="textbox" aria-multiline="true" contenteditable="PLAINTEXT-ONLY" data-role="editable" aria-label="Join the discussion…" style="overflow: auto; word-wrap: break-word; max-height: 350px;"><p><br></p></div><div style="display: none;"><ul class="user-mention__list">
+<li class="header user-mention__header">
+<h5>in this conversation</h5>
+</li>
+</ul>
+</div></div>
+<div data-role="drag-drop-placeholder" class="media-drag-hover" style="display: none">
+<div class="drag-text">
+⬇ Drag and drop your images here to upload them.
+</div>
+</div>
+<div class="media-preview empty" data-role="media-preview"><ul data-role="media-progress-list"></ul>
+<ul data-role="media-rich-list"></ul>
+<div class="media-expanded empty" data-role="media-preview-expanded">
+<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-role="media-preview-expanded-image" alt="Media preview placeholder">
+</div>
+</div>
+<div class="edit-alert" role="postbox-alert"></div>
+<div class="post-actions">
+<ul class="wysiwyg">
+<li class="wysiwyg__item" data-role="media-uploader"><a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" tabindex="-1" data-action="attach" class="attach" title="Upload Images"><span>Attach</span></a>
+<input type="file" data-role="media-upload" tabindex="-1" accept="image/*">
+</li>
+</ul>
+</div>
+</div>
+
+<div data-role="login-form"><div><section class="auth-section logged-out">
+<div class="connect">
+<h6>Log in with</h6>
+<ul data-role="login-menu" class="services login-buttons">
+
+<li class="auth-disqus">
+<button type="button" data-action="auth:disqus" title="Disqus" class="connect__button"><i class="icon-disqus"></i></button>
+</li>
+<li class="auth-facebook">
+<button type="button" data-action="auth:facebook" title="Facebook" class="connect__button"><i class="icon-facebook-circle"></i></button>
+</li>
+<li class="auth-twitter">
+<button type="button" data-action="auth:twitter" title="Twitter" class="connect__button"><i class="icon-twitter-circle"></i></button>
+</li>
+<li class="auth-google">
+<button type="button" data-action="auth:google" title="Google" class="connect__button"><i class="icon-google-plus-circle"></i></button>
+</li>
+</ul>
+</div>
+<div class="guest">
+<h6 class="guest-form-title">
+<span class="register-text"> or sign up with Disqus </span>
+<span class="guest-text"> or pick a name </span>
+</h6>
+
+<div class="help-tooltip__wrapper help-icon">
+<div id="rules" class="tooltip show help-tooltip">
+<h3 class="help-tooltip__heading">Disqus is a discussion network</h3>
+<ul class="help-tooltip__list">
+<li><span>Disqus never moderates or censors. The rules on this community are its own.</span></li>
+<li><span>Your email is safe with us. It's only used for moderation and optional notifications.</span></li>
+<li><span>Don't be a jerk or do anything illegal. Everything is easier that way.</span></li>
+</ul>
+<p class="clearfix"><a href="https://docs.disqus.com/kb/terms-and-policies/" class="btn btn-small help-tooltip__button" target="_blank">Read full terms and conditions</a></p>
+</div>
+</div>
+
+<p class="input-wrapper">
+<input dir="auto" type="text" placeholder="Name" name="display_name" id="view46_display_name" maxlength="30" class="input--text">
+</p>
+
+<div class="guest-details " data-role="guest-details">
+<p class="input-wrapper">
+<input dir="auto" type="email" placeholder="Email" name="email" id="view46_email" class="input--text">
+</p>
+
+<p class="input-wrapper">
+<input dir="auto" type="password" class="register-text input--text" placeholder="Password" name="password" id="view46_password">
+</p>
+
+<div class="acceptance-wrapper register-text">
+By signing up, you agree to the Disqus <a target="_blank" href="https://help.disqus.com/customer/portal/articles/1753105-basic-rules-for-disqus-powered-profiles-and-discussions">Basic Rules</a>, <a target="_blank" href="https://help.disqus.com/customer/portal/articles/466260-terms-of-service">Terms of Service</a>, and <a target="_blank" href="https://help.disqus.com/customer/portal/articles/466259-privacy-policy">Privacy Policy</a>.
+</div>
+<div class="acceptance-wrapper guest-text">
+By posting, you agree to the Disqus <a target="_blank" href="https://help.disqus.com/customer/portal/articles/1753105-basic-rules-for-disqus-powered-profiles-and-discussions">Basic Rules</a>, <a target="_blank" href="https://help.disqus.com/customer/portal/articles/466260-terms-of-service">Terms of Service</a>, and <a target="_blank" href="https://help.disqus.com/customer/portal/articles/466259-privacy-policy">Privacy Policy</a>.
+</div>
+
+<input type="checkbox" name="author-guest" style="display:none">
+
+<div class="proceed" data-role="submit-btn-container">
+<button type="submit" class="proceed__button btn submit" aria-label="Next"><span class="icon-proceed"></span><div class="spinner"></div></button>
+</div>
+</div>
+</div>
+</section>
+
+</div></div>
+</div>
+</form></div>
+
+<button class="alert alert--realtime" style="display: none" data-role="realtime-notification">
+</button>
+
+<div id="no-posts" style="display:none"></div>
+
+<ul id="post-list" class="post-list"><li class="post" id="post-2102273007"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/disqus_PlXKgkqJr7/" class="user" data-action="profile" data-username="disqus_PlXKgkqJr7">
+<img data-role="user-avatar" data-user="154582844" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header class="comment__header">
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/disqus_PlXKgkqJr7/" data-action="profile" data-username="disqus_PlXKgkqJr7" data-role="username">Carol McDonald</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://mapr.com/blog/hbase-and-mapr-db-designed-distribution-scale-and-speed/#comment-2102273007" data-role="relative-time" class="time-ago" title="Friday, June 26, 2015 3:44 PM">
+2 years ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>This is a good reference for Understanding  NoSQL <a href="http://disq.us/url?url=http%3A%2F%2Fmartinfowler.com%2Fbooks%2Fnosql.html%3AvQ8P6tDo4jZqyFwFiPK_cpogAr0&amp;cuid=2833547" rel="nofollow noopener">http://martinfowler.com/boo...</a></p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer class="comment__footer">
+<menu class="comment-footer__menu">
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" class="vote-up  count-1" data-action="upvote" title="">
+
+<span class="updatable count" data-role="likes">1</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="reply">
+<span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="comment__share">
+<a class="toggle"><span class="text">Share ›</span></a>
+<ul class="comment-share__buttons">
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/yrn08f" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2102273007">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" class="realtime-button"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li class="post" id="post-3132608894"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/li_ao/" class="user" data-action="profile" data-username="li_ao">
+<img data-role="user-avatar" data-user="205826200" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header class="comment__header">
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/li_ao/" data-action="profile" data-username="li_ao" data-role="username">Li Ao</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://mapr.com/blog/hbase-and-mapr-db-designed-distribution-scale-and-speed/#comment-3132608894" data-role="relative-time" class="time-ago" title="Wednesday, February 1, 2017 1:22 PM">
+2 months ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>easy understanding</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer class="comment__footer">
+<menu class="comment-footer__menu">
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="reply">
+<span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="comment__share">
+<a class="toggle"><span class="text">Share ›</span></a>
+<ul class="comment-share__buttons">
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/1ft2ohq" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:3132608894">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" class="realtime-button"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li class="post" id="post-2782254715"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/venkatasrinivasaraokolla/" class="user" data-action="profile" data-username="venkatasrinivasaraokolla">
+<img data-role="user-avatar" data-user="215033473" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header class="comment__header">
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/venkatasrinivasaraokolla/" data-action="profile" data-username="venkatasrinivasaraokolla" data-role="username">venkata srinivasarao kolla</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://mapr.com/blog/hbase-and-mapr-db-designed-distribution-scale-and-speed/#comment-2782254715" data-role="relative-time" class="time-ago" title="Thursday, July 14, 2016 1:52 AM">
+9 months ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Very crisp and neat explanation of Hbase basics. Thanks Carol.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer class="comment__footer">
+<menu class="comment-footer__menu">
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="reply">
+<span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="comment__share">
+<a class="toggle"><span class="text">Share ›</span></a>
+<ul class="comment-share__buttons">
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/1a0hdh7" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2782254715">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" class="realtime-button"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li class="post" id="post-2725985907"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/eugene_liu/" class="user" data-action="profile" data-username="eugene_liu">
+<img data-role="user-avatar" data-user="211316670" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header class="comment__header">
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/eugene_liu/" data-action="profile" data-username="eugene_liu" data-role="username">Eugene Liu</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://mapr.com/blog/hbase-and-mapr-db-designed-distribution-scale-and-speed/#comment-2725985907" data-role="relative-time" class="time-ago" title="Sunday, June 12, 2016 1:22 AM">
+10 months ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Hi Carol, a small typo in ur "Versioned data" graph. Default number equals to 1(3).</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer class="comment__footer">
+<menu class="comment-footer__menu">
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="reply">
+<span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="comment__share">
+<a class="toggle"><span class="text">Share ›</span></a>
+<ul class="comment-share__buttons">
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/192zc6r" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2725985907">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" class="realtime-button"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li class="post" id="post-2572245303"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/disqus_mMZnNKiaWX/" class="user" data-action="profile" data-username="disqus_mMZnNKiaWX">
+<img data-role="user-avatar" data-user="200588296" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header class="comment__header">
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/disqus_mMZnNKiaWX/" data-action="profile" data-username="disqus_mMZnNKiaWX" data-role="username">Manish</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://mapr.com/blog/hbase-and-mapr-db-designed-distribution-scale-and-speed/#comment-2572245303" data-role="relative-time" class="time-ago" title="Wednesday, March 16, 2016 1:02 AM">
+a year ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>This is really nicely written .....and really good one for people starting HBase.</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer class="comment__footer">
+<menu class="comment-footer__menu">
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="reply">
+<span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="comment__share">
+<a class="toggle"><span class="text">Share ›</span></a>
+<ul class="comment-share__buttons">
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/16jg56f" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2572245303">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" class="realtime-button"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li class="post" id="post-2180015234"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/disqus_PlXKgkqJr7/" class="user" data-action="profile" data-username="disqus_PlXKgkqJr7">
+<img data-role="user-avatar" data-user="154582844" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header class="comment__header">
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/disqus_PlXKgkqJr7/" data-action="profile" data-username="disqus_PlXKgkqJr7" data-role="username">Carol McDonald</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://mapr.com/blog/hbase-and-mapr-db-designed-distribution-scale-and-speed/#comment-2180015234" data-role="relative-time" class="time-ago" title="Friday, August 7, 2015 2:12 PM">
+2 years ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>MapR Adds Complete HBase Certification Curriculum to Free Hadoop On-Demand Training <a href="https://disq.us/url?url=https%3A%2F%2Fwww.mapr.com%2Fservices%2Fmapr-academy%2Fbig-data-hadoop-online-training%3ABzRcObZqOCi54t4xPotuHTz2reU&amp;cuid=2833547" rel="nofollow noopener">https://www.mapr.com/servic...</a></p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer class="comment__footer">
+<menu class="comment-footer__menu">
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="reply">
+<span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="comment__share">
+<a class="toggle"><span class="text">Share ›</span></a>
+<ul class="comment-share__buttons">
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/101xaiq" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2180015234">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" class="realtime-button"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li class="post" id="post-2148830002"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/disqus_PlXKgkqJr7/" class="user" data-action="profile" data-username="disqus_PlXKgkqJr7">
+<img data-role="user-avatar" data-user="154582844" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header class="comment__header">
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/disqus_PlXKgkqJr7/" data-action="profile" data-username="disqus_PlXKgkqJr7" data-role="username">Carol McDonald</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://mapr.com/blog/hbase-and-mapr-db-designed-distribution-scale-and-speed/#comment-2148830002" data-role="relative-time" class="time-ago" title="Tuesday, July 21, 2015 9:20 AM">
+2 years ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>to learn more you can take free online training on HBase  :  <a href="https://disq.us/url?url=https%3A%2F%2Fwww.mapr.com%2Fservices%2Fmapr-academy%2Fbig-data-hadoop-online-training%3ABzRcObZqOCi54t4xPotuHTz2reU&amp;cuid=2833547" rel="nofollow noopener">https://www.mapr.com/servic...</a></p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer class="comment__footer">
+<menu class="comment-footer__menu">
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="reply">
+<span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="comment__share">
+<a class="toggle"><span class="text">Share ›</span></a>
+<ul class="comment-share__buttons">
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/zjcvua" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2148830002">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" class="realtime-button"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li><li class="post" id="post-2119206956"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/danielmannino/" class="user" data-action="profile" data-username="danielmannino">
+<img data-role="user-avatar" data-user="164356841" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header class="comment__header">
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/danielmannino/" data-action="profile" data-username="danielmannino" data-role="username">Daniel Mannino</a></span>
+
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://mapr.com/blog/hbase-and-mapr-db-designed-distribution-scale-and-speed/#comment-2119206956" data-role="relative-time" class="time-ago" title="Monday, July 6, 2015 5:54 AM">
+2 years ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>good article but I have some comments:</p><p>- sharding automatically it is not a good idea; rows/columns from tables that are accessed together must be stored in the same shard otherwise you risk huge network traffic problems;</p><p>- database normalization makes the data fit for any use; put the data together according to an access pattern makes the data fit only for that particular pattern; in addition, having data in different table does not automatically mean storing data in different files; in Oracle, for example, you can store data from different tables in a cluster ( from the Oracle doc "cluster is a schema object that contains data from one or more tables, all of which have one or more columns in common. Oracle Database stores together all the rows from all the tables that share the same cluster key")</p><p>- Teradata is an MPP database, it provides sharding without loosing querying, transactions, and consistency; the same is true for Oracle Exadata;</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer class="comment__footer">
+<menu class="comment-footer__menu">
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="reply">
+<span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="comment__share">
+<a class="toggle"><span class="text">Share ›</span></a>
+<ul class="comment-share__buttons">
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/z1pyjw" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2119206956">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" class="realtime-button"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"><li class="post" id="post-2126399639"><div role="alert"></div>
+<div data-role="post-content" class="post-content">
+<ul class="post-menu dropdown" data-role="menu">
+<li class="collapse">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="collapse" title="Collapse"><span>−</span></a>
+</li>
+<li class="expand">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="collapse" title="Expand"><span>+</span></a>
+</li>
+
+<li class="" role="menu">
+<a class="dropdown-toggle" href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="flag" data-role="flag" title="Flag as inappropriate">
+<i aria-hidden="true" class="icon icon-flag"></i>
+</a>
+</li>
+</ul>
+<div class="indicator"></div>
+
+<div class="avatar hovercard">
+<a href="https://disqus.com/by/disqus_PlXKgkqJr7/" class="user" data-action="profile" data-username="disqus_PlXKgkqJr7">
+<img data-role="user-avatar" data-user="154582844" src="./noavatar92.png" alt="Avatar">
+</a>
+</div>
+<div class="post-body">
+<header class="comment__header">
+<span class="post-byline">
+<span class="author publisher-anchor-color"><a href="https://disqus.com/by/disqus_PlXKgkqJr7/" data-action="profile" data-username="disqus_PlXKgkqJr7" data-role="username">Carol McDonald</a></span>
+
+<span><a href="https://mapr.com/blog/hbase-and-mapr-db-designed-distribution-scale-and-speed/#comment-2119206956" class="parent-link" data-role="parent-link"><i aria-hidden="true" class="icon-forward" title="in reply to"></i> Daniel Mannino</a></span>
+</span>
+
+<span class="post-meta">
+<span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+
+<a href="https://mapr.com/blog/hbase-and-mapr-db-designed-distribution-scale-and-speed/#comment-2126399639" data-role="relative-time" class="time-ago" title="Thursday, July 9, 2015 7:56 AM">
+2 years ago
+</a>
+</span>
+
+</header>
+
+<div class="post-body-inner">
+<div class="post-message-container" data-role="message-container">
+<div class="publisher-anchor-color" data-role="message-content">
+<div class="post-message " data-role="message" dir="auto">
+<p>Sharding automatically works really well with MapR-DB,  you can watch this happen in the HBase training bulk import exercise. You should design your rowkey so that rows/columns accessed together are stored together.<br>Yes Database normalization works well for querying different ways, but it is does not scale for BIG data. I have seen customers moving off of Oracle because they had lots of data that they were flattening anyway,  and they were paying big bucks for features that were not scalable</p>
+</div>
+
+<span class="post-media"><ul data-role="post-media-list"></ul></span>
+</div>
+</div>
+<a class="see-more hidden" title="see more" data-action="see-more">see more</a>
+</div>
+
+<footer class="comment__footer">
+<menu class="comment-footer__menu">
+<li class="voting" data-role="voting">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" class="vote-up  count-0" data-action="upvote" title="Vote up">
+
+<span class="updatable count" data-role="likes">0</span>
+<span class="control"><i aria-hidden="true" class="icon icon-arrow-2"></i></span>
+</a>
+<span role="button" class="vote-down  count-0" data-action="downvote" title="Vote down">
+
+<span class="control"><i aria-hidden="true" class="icon icon-arrow"></i></span>
+</span>
+</li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="reply" data-role="reply-link">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="reply">
+<span class="text">Reply</span></a></li>
+<li class="bullet" aria-hidden="true">•</li>
+
+
+<li class="comment__share">
+<a class="toggle"><span class="text">Share ›</span></a>
+<ul class="comment-share__buttons">
+<li class="twitter">
+<button class="share__button" data-action="share:twitter">Twitter</button>
+</li>
+<li class="facebook">
+<button class="share__button" data-action="share:facebook">Facebook</button>
+</li>
+<li class="link">
+<input class="share__button" value="http://disq.us/p/z604gn" name="Link" title="Click to copy post link" data-action="copy-link" readonly="">
+</li>
+</ul>
+</li>
+
+<li class="realtime" data-role="realtime-notification:2126399639">
+<span style="display:none;" class="realtime-replies"></span>
+<a style="display:none;" href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" class="realtime-button"></a>
+</li>
+
+</menu>
+</footer>
+</div>
+
+<div data-role="blacklist-form"></div>
+<div class="reply-form-container" data-role="reply-form"></div>
+</div>
+
+<ul data-role="children" class="children"></ul>
+
+</li></ul>
+
+</li></ul>
+
+<div class="load-more" data-role="more" style="display:none">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" data-action="more-posts" class="btn load-more__button">Load more comments</a>
+</div>
+</div>
+
+</section>
+
+<div id="placement-bottom" data-tracking-area="discovery-south"><div class="post-list" style="height: auto; visibility: visible;"><div style="display: block; width: 100%;"><div id="discovery-main-c185" class="discovery-main">
+
+<section id="col-organic-c245" class="col-organic">
+<header class="discovery-col-header">
+<h2>Also on <strong>mapr.com</strong>
+</h2>
+</header>
+<ul class="discovery-posts" data-role="discovery-posts"><li class="discovery-post post-0" id="discovery-link-organic-5212567544">
+<a href="http://disq.us/url?url=https%3A%2F%2Fwww.mapr.com%2Fblog%2Fapache-drill-sql-queries-parquet-data-whiteboard-walkthrough%3AuaoH9fY2A0WT0co04qSwOnC8TpA&amp;imp=1epn5vfucu9l5&amp;prev_imp&amp;forum_id=2833547&amp;forum=maprblog&amp;thread_id=3881959643&amp;thread=5212567544&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=5212567544" class="publisher-anchor-color">
+
+<header class="discovery-post-header">
+<h3 title="Apache Drill SQL Queries on Parquet Data | Whiteboard Walkthrough">
+<span data-role="discovery-thread-title" class="title line-truncate" data-line-truncate="2">  Apache Drill SQL Queries on Parquet Data | Whiteboard …</span>
+</h3>
+
+<ul class="meta">
+<li class="comments">
+2 comments
+</li>
+<li class="time">6 months ago</li>
+</ul>
+</header>
+
+</a><a href="http://disq.us/url?url=https%3A%2F%2Fwww.mapr.com%2Fblog%2Fapache-drill-sql-queries-parquet-data-whiteboard-walkthrough%3AuaoH9fY2A0WT0co04qSwOnC8TpA&amp;imp=1epn5vfucu9l5&amp;prev_imp&amp;forum_id=2833547&amp;forum=maprblog&amp;thread_id=3881959643&amp;thread=5212567544&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=5212567544" class="top-comment" data-role="discovery-top-comment">
+<img data-src="//a.disquscdn.com/1490734007/images/noavatar92.png" alt="Avatar" data-role="discovery-avatar">
+<p><span class="user" data-role="discovery-top-comment-author">Kathleen Li</span> — <span data-role="discovery-top-comment-snippet" class="line-truncate" data-line-truncate="3">it is very clear and concise!!</span></p>
+</a>
+
+</li>
+<li class="discovery-post post-1" id="discovery-link-organic-5205543052">
+<a href="http://disq.us/url?url=https%3A%2F%2Fwww.mapr.com%2Fblog%2Fmaking-cup-coffee-has-whole-new-meaning-my-mapr-internship-journey%3A_aIhd8ynyWBE2yLeDEAjIRvbTvs&amp;imp=1epn5vfucu9l5&amp;prev_imp&amp;forum_id=2833547&amp;forum=maprblog&amp;thread_id=3881959643&amp;thread=5205543052&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=5205543052" class="publisher-anchor-color">
+
+<header class="discovery-post-header">
+<h3 title="Making a Cup of Coffee Has a Whole New Meaning: My MapR Internship Journey">
+<span data-role="discovery-thread-title" class="title line-truncate" data-line-truncate="2">  Making a Cup of Coffee Has a Whole New Meaning: My MapR …</span>
+</h3>
+
+<ul class="meta">
+<li class="comments">
+1 comment
+</li>
+<li class="time">6 months ago</li>
+</ul>
+</header>
+
+</a><a href="http://disq.us/url?url=https%3A%2F%2Fwww.mapr.com%2Fblog%2Fmaking-cup-coffee-has-whole-new-meaning-my-mapr-internship-journey%3A_aIhd8ynyWBE2yLeDEAjIRvbTvs&amp;imp=1epn5vfucu9l5&amp;prev_imp&amp;forum_id=2833547&amp;forum=maprblog&amp;thread_id=3881959643&amp;thread=5205543052&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=5205543052" class="top-comment" data-role="discovery-top-comment">
+<img data-src="https://c.disquscdn.com/uploads/users/15471/4143/avatar92.jpg?1429720180" alt="Avatar" data-role="discovery-avatar">
+<p><span class="user" data-role="discovery-top-comment-author">Ellen Friedman</span> — <span data-role="discovery-top-comment-snippet" class="line-truncate" data-line-truncate="3"> Emily, glad to hear that the "Preconceptions" blog post was helpful and that you …</span></p>
+</a>
+
+</li>
+<li class="discovery-post post-2" id="discovery-link-organic-5572281403">
+<a href="http://disq.us/url?url=https%3A%2F%2Fwww.mapr.com%2Fblog%2Fbig-data-analytics-use-cases-rx-healthcare%3APRYE9rp5EGRTFUQ8RzrEgSTqIQQ&amp;imp=1epn5vfucu9l5&amp;prev_imp&amp;forum_id=2833547&amp;forum=maprblog&amp;thread_id=3881959643&amp;thread=5572281403&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=5572281403" class="publisher-anchor-color">
+
+<header class="discovery-post-header">
+<h3 title="Big Data Analytics Use Cases: R/X For Healthcare">
+<span data-role="discovery-thread-title" class="title line-truncate" data-line-truncate="2">
+Big Data Analytics Use Cases: R/X For Healthcare
+</span>
+</h3>
+
+<ul class="meta">
+<li class="comments">
+1 comment
+</li>
+<li class="time">2 months ago</li>
+</ul>
+</header>
+
+</a><a href="http://disq.us/url?url=https%3A%2F%2Fwww.mapr.com%2Fblog%2Fbig-data-analytics-use-cases-rx-healthcare%3APRYE9rp5EGRTFUQ8RzrEgSTqIQQ&amp;imp=1epn5vfucu9l5&amp;prev_imp&amp;forum_id=2833547&amp;forum=maprblog&amp;thread_id=3881959643&amp;thread=5572281403&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=5572281403" class="top-comment" data-role="discovery-top-comment">
+<img data-src="https://c.disquscdn.com/uploads/users/22014/5856/avatar92.jpg?1491324858" alt="Avatar" data-role="discovery-avatar">
+<p><span class="user" data-role="discovery-top-comment-author">Oliver Dechant</span> — <span data-role="discovery-top-comment-snippet" class="line-truncate" data-line-truncate="3"> The great paradox being that of lowered technology costs except in …</span></p>
+</a>
+
+</li>
+<li class="discovery-post post-3" id="discovery-link-organic-5217804560">
+<a href="http://disq.us/url?url=https%3A%2F%2Fwww.mapr.com%2Fblog%2Fgetting-started-druid-and-mapr-streams%3AXJW4mCcl7n4-Whh59VnUUE10-XA&amp;imp=1epn5vfucu9l5&amp;prev_imp&amp;forum_id=2833547&amp;forum=maprblog&amp;thread_id=3881959643&amp;thread=5217804560&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=5217804560" class="publisher-anchor-color">
+
+<header class="discovery-post-header">
+<h3 title="Getting started with Druid and MapR Streams">
+<span data-role="discovery-thread-title" class="title line-truncate" data-line-truncate="2">
+Getting started with Druid and MapR Streams
+</span>
+</h3>
+
+<ul class="meta">
+<li class="comments">
+8 comments
+</li>
+<li class="time">6 months ago</li>
+</ul>
+</header>
+
+</a><a href="http://disq.us/url?url=https%3A%2F%2Fwww.mapr.com%2Fblog%2Fgetting-started-druid-and-mapr-streams%3AXJW4mCcl7n4-Whh59VnUUE10-XA&amp;imp=1epn5vfucu9l5&amp;prev_imp&amp;forum_id=2833547&amp;forum=maprblog&amp;thread_id=3881959643&amp;thread=5217804560&amp;zone=thread&amp;area=bottom&amp;object_type=thread&amp;object_id=5217804560" class="top-comment" data-role="discovery-top-comment">
+<img data-src="//a.disquscdn.com/1490734007/images/noavatar92.png" alt="Avatar" data-role="discovery-avatar">
+<p><span class="user" data-role="discovery-top-comment-author">Sam</span> — <span data-role="discovery-top-comment-snippet" class="line-truncate" data-line-truncate="3"> Druid's configuration asks for name nodes which MapR does not have.  Is there another …</span></p>
+</a>
+
+</li>
+</ul>
+</section>
+
+</div>
+</div></div></div>
+
+<div id="footer" data-tracking-area="footer" class="disqus-footer__wrapper">
+<ul class="disqus-footer">
+<li class="disqus-footer__logo"><a href="https://disqus.com/" rel="nofollow" title="Powered by Disqus" class="disqus-footer__link">Powered by Disqus</a></li>
+<li id="thread-subscribe-button" class="email disqus-footer__item"> 
+<div class="default">
+<a href="https://disqus.com/embed/comments/?base=default&amp;f=maprblog&amp;t_i=node%2F12346&amp;t_u=http%3A%2F%2Fdefault%2Fblog%2Fhbase-and-mapr-db-designed-distribution-scale-and-speed&amp;t_d=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;t_t=HBase%20and%20MapR-DB%3A%20Designed%20for%20Distribution%2C%20Scale%2C%20and%20Speed&amp;s_o=default#" rel="nofollow" data-action="subscribe" title="Subscribe and get email updates from this discussion" class="disqus-footer__link"><i aria-hidden="true" class="icon icon-mail"></i><span class="clip">Subscribe</span> <i aria-hidden="true" class="icon icon-checkmark"></i></a>
+</div>
+<div class="form">
+<div class="input-wrapper"><input id="thread-subscribe-email" type="email" placeholder="yourname@email.com" class="disqus-footer__input input--text"></div>
+</div>
+</li>
+<li class="install disqus-footer__item">
+<a href="https://publishers.disqus.com/engage?utm_source=maprblog&amp;utm_medium=Disqus-Footer" rel="nofollow" target="_blank" class="disqus-footer__link">
+<i aria-hidden="true" class="icon icon-disqus"></i>
+<span class="clip hidden-sm">Add Disqus to your site</span>
+<span class="clip visible-sm hidden-xs">Add Disqus</span>
+<span class="clip visible-xs">Add</span>
+</a>
+</li>
+<li class="privacy disqus-footer__item">
+<a href="https://help.disqus.com/customer/portal/articles/1657951?utm_source=disqus&amp;utm_medium=embed-footer&amp;utm_content=privacy-btn" rel="nofollow" target="_blank" class="disqus-footer__link">
+<i aria-hidden="true" class="icon icon-lock"></i>
+<span class="clip">Privacy</span>
+</a>
+</li>
+</ul>
+</div>
+</div></body></html>
